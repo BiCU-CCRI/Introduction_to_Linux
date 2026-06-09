@@ -1,0 +1,18 @@
+{
+  "id": 7268655,
+  "name": "max_filesize_50MB",
+  "target": "push",
+  "source_type": "Repository",
+  "source": "BiCU-CCRI/BiCU_shared_repository_template",
+  "enforcement": "active",
+  "conditions": null,
+  "rules": [
+    {
+      "type": "max_file_size",
+      "parameters": {
+        "max_file_size": 50
+      }
+    }
+  ],
+  "bypass_actors": []
+}
