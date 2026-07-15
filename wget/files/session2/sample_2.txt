@@ -1,0 +1,3 @@
+This is sample file two.
+Different content from sample one, same purpose.
+Used later to build a combined file.
