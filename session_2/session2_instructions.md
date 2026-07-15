@@ -296,6 +296,71 @@ Are only the three fruit files (`fruit_a.txt`, `fruit_b.txt`, `fruit_c.txt`) in 
 
 ---
 
+### Exercise 5: Sort & Unique
+
+**Goal:** Use pipes to chain commands together, and use `sort` and `uniq` to clean up messy, duplicate-filled data.
+
+**Before you start:** confirm `names.txt` is in your `session2/names` folder - run `ls` after navigating to `session2/names`. Run `cat names.txt` and look at it - notice it's unsorted and has repeated names.
+
+**Step 1. See the raw problem**
+
+**1.** Read the file as-is: `cat names.txt` - how many lines total? How many names look like duplicates?
+
+**Step 2. Sort it**
+
+**2.** Sort the file alphabetically:
+```
+sort names.txt
+```
+This does **not** change `names.txt` - it just prints the sorted result. Notice the duplicate lines are now next to each other, but still both present.
+
+**Step 3. Pipe into uniq**
+
+**3.** `uniq` only removes duplicate lines that are *directly next to each other* - which is why we sort first:
+```
+sort names.txt | uniq
+```
+Compare this output to plain `cat names.txt`. How many lines dropped?
+
+**4.** Try `uniq` **without** sorting first, and compare:
+```
+uniq names.txt
+```
+Why does this leave more duplicates behind than the piped version did?
+
+**Step 4. Count duplicates**
+
+**5.** See how many times each name appears, sorted with counts:
+```
+sort names.txt | uniq -c
+```
+
+**6.** Sort that by count, highest first:
+```
+sort names.txt | uniq -c | sort -nr
+```
+This chains three commands together with two pipes. Read it left to right: sort the names, collapse duplicates while counting them, then sort *those* results by count.
+
+**Step 5. Save the cleaned result**
+
+**7.** Redirect the deduplicated, sorted list into a new file:
+```
+sort names.txt | uniq > names_clean.txt
+cat names_clean.txt
+```
+
+**You are done when:**
+- You've compared `sort | uniq` output to `uniq` alone and can explain the difference
+- `sort names.txt | uniq -c | sort -nr` runs without error and shows counts highest-first
+- `names_clean.txt` exists and contains no duplicate lines
+
+**Extension - if you finish early:**
+- Look closely at `names.txt` - two entries look almost identical but aren't exact duplicates (case, trailing space). Does `sort | uniq` catch them? Why not?
+- Try `sort -u names.txt` - how does the output compare to `sort names.txt | uniq`? (Same result, different route - `-u` is a shortcut.)
+- What would `cat names.txt names.txt | sort | uniq` do, and why?
+
+---
+
 ## Cheat Sheet
 
 | Command | What it does |
@@ -311,6 +376,10 @@ Are only the three fruit files (`fruit_a.txt`, `fruit_b.txt`, `fruit_c.txt`) in 
 | `cp file dir/` | Copy a file into a directory |
 | `*` | Wildcard: any number of characters |
 | `?` | Wildcard: exactly one character |
+| `sort file` | Sort lines alphabetically |
+| `sort file \| uniq` | Remove adjacent duplicate lines (sort first!) |
+| `uniq -c` | Count occurrences of each line |
+| `sort -u file` | Shortcut for sort + remove duplicates |
 
 **Golden rule:** `ls` with your pattern before you `mv` or act on it.
 
