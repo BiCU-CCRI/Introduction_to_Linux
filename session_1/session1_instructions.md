@@ -118,15 +118,18 @@ Read the error. How is it the same as the error above, and how is it different?
 
 **15.** Use `cd ..` again to return to `session1`. Run `pwd` to confirm.
 
+**16.** Use `rm -r` to delete `navigation_test`.
+
 **You are done when:**
 - You can navigate into and out of folders without referring to the cheat sheet
 - `pwd` reliably tells you where you are at any moment
 - You understand why an empty directory shows nothing when you run `ls`
+- You can delete folders and understand that `rm -r` deletes the specified folder and all its contents. The command does not ask for confirmation!
 
 **Extension - if you finish early:**
+- Run `pwd` to check the current directory and copy the path.
 - Try `cd ~`. Where does it take you? Run `pwd` to check.
-- From your home directory, navigate back to `session1` using `cd` and **Tab completion** only.
-- What happens if you try `cd navigation_test` when you're already inside `navigation_test`?
+- From your home directory, use `cd` (with **Tab completion**) or paste the path you copied earlier to return to `session1`.
 
 ---
 
@@ -177,6 +180,8 @@ cd projects
 ls -l
 ```
 You should see `work` and `personal`.
+
+Run `tree` to display the directory structure of `projects`.
 
 Enter `work` and confirm:
 ```
