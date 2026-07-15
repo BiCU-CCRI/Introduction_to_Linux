@@ -1,5 +1,5 @@
 {
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "features": {},
-  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y tabix"
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y --no-install-recommends tabix && sudo apt-get clean && sudo rm -rf /var/lib/apt/lists/*"
 }
