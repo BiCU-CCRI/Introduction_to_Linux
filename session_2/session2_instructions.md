@@ -84,20 +84,21 @@ pwd
 
 **1.** Download the first sample file:
 ```
-wget [PASTE URL FOR sample_1.txt]
+wget https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/refs/heads/21-create-wget-branch-to-host-files-for-exercises/wget/files/session2/sample_1.txt
 ```
 
 **2.** Confirm it downloaded: `ls -lh`
 
 **3.** Download the second and third files:
 ```
-wget [PASTE URL FOR sample_2.txt]
-wget [PASTE URL FOR sample_3.txt]
+wget https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/refs/heads/21-create-wget-branch-to-host-files-for-exercises/wget/files/session2/sample_2.txt
+
+wget https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/refs/heads/21-create-wget-branch-to-host-files-for-exercises/wget/files/session2/sample_3.txt
 ```
 
 **4.** Download the checksums file:
 ```
-wget [PASTE URL FOR checksums.md5]
+wget https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/refs/heads/21-create-wget-branch-to-host-files-for-exercises/wget/files/session2/checksums.md5
 ```
 
 **5.** Confirm all four files are present: `ls -lh` - you should see `sample_1.txt`, `sample_2.txt`, `sample_3.txt`, and `checksums.md5`.
