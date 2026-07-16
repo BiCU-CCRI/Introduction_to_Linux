@@ -10,7 +10,7 @@ While most personal computers and laptops run Windows or macOS, Linux is the pre
 
 ![Operating systems used on the TOP500 supercomputers](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Operating_systems_used_on_top_500_supercomputers.svg/500px-Operating_systems_used_on_top_500_supercomputers.svg.png)
 
-<sup>*By Benedikt.Seidl - Eigenes Werk (own work) / source top500.org, Public Domain, https://commons.wikimedia.org/w/index.php?curid=5932978*</sup>
+<sup>*Operating systems used on the TOP500 supercomputers by Benedikt.Seidl - Eigenes Werk (own work) / source top500.org, Public Domain, https://commons.wikimedia.org/w/index.php?curid=5932978*</sup>
 
 Another important reason Linux is the OS of choice for scientific computing is that it is open source - anyone can inspect, modify, and improve its source code. This means there are no licensing fees, and the system can be customised to suit a wide range of hardware and research applications. As a result, most scientific computing infrastructure runs Linux, and many bioinformatics tools are developed primarily for Linux environments.
 
@@ -58,10 +58,10 @@ This course is designed to run in [GitHub Codespaces](https://github.com/feature
 4. Click **Create codespace on main**.
 5. Wait for the environment to build - this can take a minute or two the first time.
 
-<!-- TDOO: Add screenshot of "Create codespace on main" when repository is closed to finished -->
+<!-- TODO: Add screenshot of "Create codespace on main" when repository is close to finished -->
 
 Once it is ready, you will have a complete Linux environment running in your browser, including a terminal where you can run commands.
-<!-- TDOO: Add screenshot of where Terminal is when repository is closed to finished -->
+<!-- TODO: Add screenshot of where Terminal is when repository is close to finished -->
 
 You can experiment freely in this environment — if something goes wrong, you can always restart the Codespace or return to the original course files.
 
@@ -88,9 +88,9 @@ Work through the sessions in order, as later sessions build on commands and conc
 
 You won't remember every command or option, and that's fine - knowing how to look things up quickly is itself a core Linux skill.
 
-**Ask the command itself:**
+**Use built-in documentation:**
 - `command --help` prints a short summary of what a command does and its available options, e.g. `ls --help`.
-- `man command` opens the full manual page for a command, e.g. `man grep` (press `q` to quit).
+- `man command` opens the full manual page for a command, e.g. `man grep`. Use the arrow keys or spacebar to scroll, and press `q` to quit.
 
 **Check the session material:**
 - Each session's cheat sheet and Appendix A cover the commands introduced so far.
@@ -103,7 +103,7 @@ You won't remember every command or option, and that's fine - knowing how to loo
 
 **Ask an AI tool:**
 - Tools like ChatGPT or Claude are good at explaining what a command or error message means, or suggesting the right command for a task you can describe in plain English.
-- Always read and understand a suggested command before running it - especially anything involving `rm`, `mv`, or file permissions, since these can't be undone.
+- Always check and understand a suggested command before running it - especially anything involving `rm`, `mv`, or file permissions, since these can't be undone.
 
 ---
 
