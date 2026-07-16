@@ -7,27 +7,17 @@
 
 Today we'll cover:
 
-1. Download the input file
-2. **Exercise 1: Download and Verify**
-3. Inspecting file size with `wc`
-4. **Exercise 2: Counting Lines**
-5. Looking at the start and end of a file
-6. **Exercise 3: Head & Tail**
-7. Reading a whole file safely
-8. **Exercise 4: Reading Large Files**
-9. Searching inside files with `grep`
-10. **Exercise 5: Searching with grep**
-11. Writing your first script
-12. **Exercise 6: Scripting**
-13. Variables
-14. **Exercise 7: Variables**
-15. `for` loops
-16. **Exercise 8: For Loops**
-17. Scripts calling scripts
-18. **Exercise 9: Scripts in Scripts**
-19. Compare outputs
-20. **Exercise 10: Compare similar / identical outputs**
-21. Wrap-up
+1. **Exercise 1: Download and Verify**
+2. **Exercise 2: Counting Lines**
+3. **Exercise 3: Head & Tail**
+4. **Exercise 4: Reading Large Files**
+5. **Exercise 5: Searching with grep**
+6. **Exercise 6: Scripting**
+7. **Exercise 7: Variables**
+8. **Exercise 8: For Loops**
+9. **Exercise 9: Scripts in Scripts**
+10. **Exercise 10: Compare similar / identical outputs**
+11. Wrap-up
 
 ---
 
@@ -37,7 +27,7 @@ Today we'll cover:
 
 **Goal:** Download the input file and confirm md5sum.
 
-**Before you start:** `cd session3`
+**Before you start:** `cd session_3`
 
 **1.** Download `mendel.txt` from this URL:
 << URL >>
@@ -116,9 +106,9 @@ less mendel.txt
 
 **Part B - Editor (VS Code)**
 
-**7.** Open `mendel.txt` in VS Code: hold `Cmd` (Mac) or `Ctrl` (Windows) and left-click the file from the `ls` output in your terminal, or find it in the VS Code file explorer and click it there.
+**2.** Open `mendel.txt` in VS Code: hold `Cmd` (Mac) or `Ctrl` (Windows) and left-click the file from the `ls` output in your terminal, or find it in the VS Code file explorer and click it there.
 
-**8.** Scroll with your mouse. Use `Cmd/Ctrl+F` to search, and `Cmd/Ctrl` + arrow keys to jump around.
+**3.** Scroll with your mouse. Use `Cmd/Ctrl+F` to search, and `Cmd/Ctrl` + arrow keys to jump around.
 
 **Note: in an editor you *can* accidentally edit or overwrite your files**
 
@@ -173,7 +163,7 @@ grep "Generation" mendel.txt >> mendel_generation.txt
 bash my_script
 ```
 
-This showcases how easy it is to write a script. However we skipped 3 important best practices that we should adhere to since we dont want to produce sloppy code.
+This showcases how easy it is to write a script. However, we skipped 3 important best practices that we should adhere to since we don't want to produce sloppy code.
 
 **4**. Add a shebang line at the top of the script:
 ```
@@ -203,8 +193,8 @@ This gives the file permission to be run as a program. After that, you can execu
 ```
 #!/bin/bash
 
-head -n 5 data/txt/mendel.txt > mendel_generation.txt
-grep "Generation" data/txt/mendel.txt >> mendel_generation.txt
+head -n 5 mendel.txt > mendel_generation.txt
+grep "Generation" mendel.txt >> mendel_generation.txt
 ```
 
 and we can run it either as
