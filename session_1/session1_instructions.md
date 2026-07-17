@@ -293,8 +293,6 @@ echo "cherry" >> fruits.txt
 | `clear` | Clear the terminal screen (doesn't delete anything) |
 | `>` / `>>` | Redirect (save) output to a file - write (overwrite if not empty) / append |
 
-**Keyboard shortcuts:** `Tab` autocomplete · `Tab Tab` show all matches · `↑` `↓` move through command history · `Ctrl+C` cancel the current command
-
 ---
 
 ## Appendix A - Full Command Reference for Session 1
