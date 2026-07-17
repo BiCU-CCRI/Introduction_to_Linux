@@ -9,9 +9,9 @@ Today we'll cover:
 
 1. **Exercise 1: Refresher**
 2. Downloading files with `wget`
-3. **Exercise 2 - Part A: Download**
+3. **Exercise 2, Download**
 4. Verifying files with `md5sum`
-5. **Exercise 2 - Part B: Verify**
+5. **Exercise 2, Verify**
 6. Combining & organizing files
 7. **Exercise 3: Combine & Organize**
 8. Wildcards
