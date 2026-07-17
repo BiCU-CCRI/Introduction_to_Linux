@@ -38,7 +38,7 @@ Today we'll cover:
 
 **Goal:** Confirm you can apply Session 1 commands without help. Try to recall everything from your memory before reaching for the cheat sheet or looking back - list a directory, move to a directory and back, view the file content, print some text to the screen, save text to a file.
 
-**Start here - navigate to `session2`:**
+**Start here - navigate to `session_2`:**
 ```
 cd /workspaces/Introduction_to_Linux/session_2/
 pwd
@@ -48,7 +48,7 @@ pwd
 
 **2.** What is the content of this folder?
 
-**3.** Create a directory called `my_work` inside `session2`.
+**3.** Create a directory called `my_work` inside `session_2`.
 
 **4.** Navigate into `my_work`.
 
@@ -62,18 +62,18 @@ pwd
 
 **9.** Read the full contents of `log.txt`. How many lines do you see?
 
-**10.** Navigate back to `session2` and confirm your location.
+**10.** Navigate back to `session_2` and confirm your location.
 
 **11.** Without entering the `my_work` directory, list its contents.
 
 **You are done when:**
 - `cat log.txt` shows all three lines
-- You are back in `session2` confirmed with `pwd`
+- You are back in `session_2` confirmed with `pwd`
 - `ls my_work` shows `log.txt`
 
 **Extension - if you finish early:**
 - Run `cat log.txt log.txt > double.txt` inside `my_work`. What does `double.txt` contain? Why?
-- From `session2`, run `ls -lh my_work`. What information does each column show?
+- From `session_2`, run `ls -lh my_work`. What information does each column show?
 
 ---
 
@@ -81,7 +81,7 @@ pwd
 
 **Goal:** Download all three sample files and the checksums file using `wget`.
 
-**Before you start:** Run `pwd` - confirm you're in `session2`.
+**Before you start:** Run `pwd` - confirm you're in `session_2`.
 
 **1.** Download the first sample file:
 ```
@@ -107,7 +107,7 @@ wget https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/refs/head
 **6.** Look at the checksums file: `cat checksums.md5` - what does it contain? 
 
 **You are done when:**
-- `ls` shows all four files in `session2`
+- `ls` shows all four files in `session_2`
 - `cat checksums.md5` shows three lines of text
 
 **Extension - if you finish early:**
@@ -120,7 +120,7 @@ wget https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/refs/head
 
 **Goal:** Verify the status of your downloaded files (`md5sum` and `md5sum -c`), and see for yourself what a download failure/corrupted file looks like.
 
-**Before you start:** Run `pwd` - confirm you're in `session2`. Run `ls` - confirm you have `sample_1.txt`, `sample_2.txt`, `sample_3.txt`, and `checksums.md5`.
+**Before you start:** Run `pwd` - confirm you're in `session_2`. Run `ls` - confirm you have `sample_1.txt`, `sample_2.txt`, `sample_3.txt`, and `checksums.md5`.
 
 **1.** Calculate the checksum for `sample_1.txt`:
 ```
@@ -168,15 +168,15 @@ md5sum -c checksums.md5
 
 **Goal:** Combine the three sample files, create an organized directory structure, and move files into it.
 
-**Before you start:** Run `pwd` - confirm you're in `session2`. Run `ls` - confirm `sample_1.txt`, `sample_2.txt`, and `sample_3.txt` are still here.
+**Before you start:** Run `pwd` - confirm you're in `session_2`. Run `ls` - confirm `sample_1.txt`, `sample_2.txt`, and `sample_3.txt` are still here.
 
-**Step 1. Combine the three sample files:**
+**Part A. Combine the three sample files:**
 ```
 cat sample_1.txt sample_2.txt sample_3.txt > combined.txt
 ```
 Verify: `cat combined.txt` - does it contain content from all three files? Is there a specific order?
 
-**Step 2. Create a directory structure:**
+**Part B. Create a directory structure:**
 ```
 mkdir organized
 mkdir organized/raw
@@ -184,7 +184,7 @@ mkdir organized/combined
 ```
 Check: `ls organized/`
 
-**Step 3. Move the original files into `organized/raw/`:**
+**Part C. Move the original files into `organized/raw/`:**
 ```
 mv sample_1.txt organized/raw/
 mv sample_2.txt organized/raw/
@@ -195,20 +195,20 @@ Verify:
 ls organized/raw/
 ls
 ```
-The three sample files should now be in `organized/raw` but not in `session2`.
+The three sample files should now be in `organized/raw` but not in `session_2`.
 
-**Step 4. Move the combined file:**
+**Part D. Move the combined file:**
 ```
 mv combined.txt organized/combined/
 ```
 
-**Step 5. Create a backup copy:**
+**Part E. Create a backup copy:**
 ```
 cp organized/combined/combined.txt combined_backup.txt
 ls
 ```
 
-**Step 6. Rename the backup to something descriptive:**
+**Part F. Rename the backup to something descriptive:**
 ```
 mv combined_backup.txt samples_combined.txt
 ls
@@ -217,7 +217,7 @@ ls
 **You are done when:**
 - `ls organized/raw/` shows `sample_1.txt`, `sample_2.txt`, `sample_3.txt`
 - `ls organized/combined/` shows `combined.txt`
-- `ls` in `session2` shows `samples_combined.txt`
+- `ls` in `session_2` shows `samples_combined.txt`
 
 **Extension - if you finish early:**
 - Run `cat organized/raw/sample_1.txt organized/raw/sample_2.txt organized/raw/sample_3.txt` - you can `cat` files using their full paths without entering the directory
@@ -230,9 +230,9 @@ ls
 
 **Goal:** Use wildcards to select groups of files precisely and apply the `ls`-before-acting habit.
 
-**Before you start:** confirm `fruit_a.txt`, `fruit_b.txt`, `fruit_c.txt`, `fruit_info.txt`, `results_final.txt`, and `notes.txt` are already in your `session2/data` folder.
+**Before you start:** confirm `fruit_a.txt`, `fruit_b.txt`, `fruit_c.txt`, `fruit_info.txt`, `results_final.txt`, and `notes.txt` are already in your `session_2/data` folder.
 
-**Step 1. Explore `*`**
+**Part A. Explore `*`**
 
 **1.** List all `.txt` files: `ls *.txt` - how many files match?
 
@@ -247,7 +247,7 @@ cat all_fruit.txt
 ```
 What does it contain? Did `fruit_info.txt` get included?
 
-**Step 2. Explore `?`**
+**Part B. Explore `?`**
 
 **5.** Try `?` to match only a single wildcard character: `ls fruit_?.txt` - which files match? Is `fruit_info.txt` included? Why?
 
@@ -258,7 +258,7 @@ ls fruit_*.txt
 ```
 What's the difference in the results?
 
-**Step 3. Preview before acting**
+**Part C. Preview before acting**
 
 **7.** You want to move only the three `fruit_?.txt` files to an `archive/` folder. Preview first:
 ```
@@ -279,11 +279,11 @@ ls archive/
 ```
 Are only the three fruit files (`fruit_a.txt`, `fruit_b.txt`, `fruit_c.txt`) in `archive/`?
 
-**10.** Confirm that `fruit_info.txt`, `results_final.txt`, and `notes.txt` are still in `session2`.
+**10.** Confirm that `fruit_info.txt`, `results_final.txt`, and `notes.txt` are still in `session_2`.
 
 **You are done when:**
 - `ls archive/` shows `fruit_a.txt`, `fruit_b.txt`, `fruit_c.txt`
-- `fruit_info.txt`, `results_final.txt`, and `notes.txt` are still in `session2/data`
+- `fruit_info.txt`, `results_final.txt`, and `notes.txt` are still in `session_2/data`
 - You used `ls` to preview before running `mv`
 
 **Extension - if you finish early:**
@@ -297,35 +297,33 @@ Are only the three fruit files (`fruit_a.txt`, `fruit_b.txt`, `fruit_c.txt`) in 
 
 **Goal:** Chain commands together, and clean up messy, duplicate-filled data.
 
-**Before you start:** confirm `names.txt` is in your `session2/names` folder - run `ls` after navigating to `session2/names`. Run `cat names.txt` and look at it - notice it's unsorted and has repeated names.
+**Before you start:** confirm `names.txt` is in your `session_2/names` folder - run `ls` after navigating to `session_2/names`. Run `cat names.txt` and look at it - notice it's unsorted and has repeated names.
 
-**Step 1. See the raw problem**
+**Part A. See the raw problem**
 
 **1.** Read the file as-is: `cat names.txt` - how many lines total? How many names look like duplicates?
 
-**Step 2. Sort it**
+**Part B. Remove duplicates**
 
-**2.** Sort the file alphabetically:
+**2.** Run `uniq` on the file:
+```
+uniq names.txt
+```
+What is the output? Did it remove duplicates?
+
+**3.** Now sort the file alphabetically:
 ```
 sort names.txt
 ```
 This does **not** change `names.txt` - it just prints the sorted result to the terminal. Notice the duplicate lines are now next to each other, but still both present.
 
-**Step 3. Pipe into `uniq`**
-
-**3.** `uniq` only removes duplicate lines that are on adjacent lines - which is why we sort first:
+**4.** `uniq` only removes duplicate lines that are on adjacent lines - which is why we sort first:
 ```
 sort names.txt | uniq
 ```
 Compare this output to plain `cat names.txt`. How many lines dropped?
 
-**4.** Try `uniq` **without** sorting first, and compare:
-```
-uniq names.txt
-```
-Why does this leave more duplicates behind than the piped version did?
-
-**Step 4. Count duplicates**
+**Part C. Count duplicates**
 
 **5.** See how many times each name appears, sorted with counts:
 ```
@@ -338,7 +336,7 @@ sort names.txt | uniq -c | sort -nr
 ```
 This chains three commands together with two pipes - the output of the previous command is piped into the next command as input. Read it left to right: sort the names, collapse duplicates and count them, sort the results by count.
 
-**Step 5. Save the deduplicated result**
+**Part D. Save the deduplicated result**
 
 **7.** Redirect the deduplicated (and sorted) list into a new file:
 ```
@@ -355,6 +353,10 @@ cat names_clean.txt
 - Look closely at `names.txt` - two entries look almost identical but aren't exact duplicates (case, trailing space). Does `sort | uniq` catch them? Why not?
 - Try `sort -u names.txt` - how does the output compare to `sort names.txt | uniq`?
 - What would `cat names.txt names.txt | sort | uniq` do, and why?
+
+---
+
+**Important to remember:** `ls` with your pattern before you `mv` or act on it.
 
 ---
 
@@ -377,8 +379,6 @@ cat names_clean.txt
 | `sort file \| uniq` | Remove adjacent duplicate lines|
 | `sort -u file` | Shortcut for `sort | uniq` |
 | `uniq -c` | Count occurrences of each line |
-
-**Golden rule:** `ls` with your pattern before you `mv` or act on it.
 
 ---
 
@@ -417,7 +417,6 @@ cat names_clean.txt
 | `ls` / `ls -lh` | What is here? |
 | `cd folder` | Enter a directory |
 | `cd ..` | Go up one level |
-| `cd ~/session2` | Go to session2 from anywhere |
 | `mkdir name` | Create a directory |
 | `touch file` | Create an empty file |
 | `echo "text" > file` | Write to file (overwrites) |
