@@ -9,9 +9,9 @@ Today we'll cover:
 
 1. **Exercise 1: Refresher**
 2. Downloading files with `wget`
-3. **Exercise 2, Download**
+3. **Exercise 2 - Part A: Download**
 4. Verifying files with `md5sum`
-5. **Exercise 2, Verify**
+5. **Exercise 2 - Part B: Verify**
 6. Combining & organizing files
 7. **Exercise 3: Combine & Organize**
 8. Wildcards
@@ -76,7 +76,7 @@ pwd
 
 ---
 
-### Exercise 2, Download
+### Exercise 2 - Part A: Download
 
 **Goal:** Download all three sample files and the checksums file using `wget`.
 
@@ -115,7 +115,7 @@ wget https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/refs/head
 
 ---
 
-### Exercise 2, Verify
+### Exercise 2 - Part B: Verify
 
 **Goal:** Verify the status of your downloaded files (`md5sum` and `md5sum -c`), and see for yourself what a download failure/corrupted file looks like.
 
