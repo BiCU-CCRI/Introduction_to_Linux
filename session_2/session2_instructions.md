@@ -26,7 +26,7 @@ Today we'll cover:
 - **`pwd` before you download.** Wherever you are when you run `wget` is where the downloaded file lands.
 - **A checksum is a fingerprint, not a password.** You never need to memorize or type one - you just compare "does it say OK or FAILED." 
     - Note: There are two common forms: a batch file (`checksums.md5` covering several files) and a single-file companion (`file.txt.md5` covering just one) - you'll see both.
-- **Never redirect into a file you're reading from.** `cat file1 file2 > file1` empties `file1` before `cat` even reads it. Always redirect to a *new* filename.
+- **Never redirect into a file you're reading from.** `cat file1 file2 > file1` empties `file1` before `cat` even reads it. Always redirect to a **new** file.
 - **`mv` moves - the original is gone** while **`cp` copies - the original stays**. Neither warns you before overwriting an existing file.
 - **Wildcards are expanded by the shell, not the command.** `*` matches any number of any characters; `?` matches exactly one. `ls` with your wildcard pattern **before** running `mv` or `rm` with it - always check what it actually matches before doing anything potentially harmful.
 
@@ -336,7 +336,7 @@ sort names.txt | uniq -c
 ```
 sort names.txt | uniq -c | sort -nr
 ```
-This chains three commands together with two pipes. Read it left to right: sort the names, collapse duplicates while counting them, then sort *those* results by count.
+This chains three commands together with two pipes - the output of the previous command is piped into the next command as input. Read it left to right: sort the names, collapse duplicates and count them, sort the results by count.
 
 **Step 5. Save the deduplicated result**
 
@@ -371,12 +371,12 @@ cat names_clean.txt
 | `mv file dir/` | Move a file into a directory |
 | `cp file copy` | Copy a file (original stays) |
 | `cp file dir/` | Copy a file into a directory |
-| `*` | Wildcard: any number of characters |
+| `*` | Wildcard: any number of any characters |
 | `?` | Wildcard: exactly one character |
 | `sort file` | Sort lines alphabetically |
-| `sort file \| uniq` | Remove adjacent duplicate lines (sort first!) |
+| `sort file \| uniq` | Remove adjacent duplicate lines|
+| `sort -u file` | Shortcut for `sort | uniq` |
 | `uniq -c` | Count occurrences of each line |
-| `sort -u file` | Shortcut for sort + remove duplicates |
 
 **Golden rule:** `ls` with your pattern before you `mv` or act on it.
 
@@ -389,12 +389,12 @@ cat names_clean.txt
 | `wget URL` | Download a file from a URL to current directory | `wget https://example.com/data.txt` |
 | `wget -O name URL` | Download and save with a specified filename | `wget -O mydata.txt https://example.com/data.txt` |
 | `md5sum file` | Compute the MD5 checksum of a file | `md5sum sample_1.txt` |
-| `md5sum f1 f2 f3` | Compute checksums for multiple files | `md5sum sample_1.txt sample_2.txt` |
+| `md5sum file1 file2 file3` | Compute checksums for multiple files | `md5sum sample_1.txt sample_2.txt` |
 | `md5sum -c file.md5` | Verify files against a checksums file | `md5sum -c checksums.md5` |
 | `cat f1 f2 > out` | Concatenate files into a new output file | `cat a.txt b.txt > combined.txt` |
 | `mv old new` | Rename a file | `mv data.txt data_raw.txt` |
 | `mv file dir/` | Move a file into a directory | `mv data.txt archive/` |
-| `mv f1 f2 dir/` | Move multiple files into a directory | `mv a.txt b.txt archive/` |
+| `mv file1 file2 dir/` | Move multiple files into a directory | `mv a.txt b.txt archive/` |
 | `cp file copy` | Copy a file with a new name | `cp data.txt data_backup.txt` |
 | `cp file dir/` | Copy a file into a directory | `cp data.txt backup/` |
 
@@ -402,7 +402,7 @@ cat names_clean.txt
 
 | Pattern | Matches | Does NOT match |
 |---|---|---|
-| `*.txt` | Every `.txt` file | `.csv` files, files with no extension |
+| `*.txt` | Every `.txt` file | files without `.txt` extension. For example, `.csv` files |
 | `data_*` | Everything starting with `data_` | Files starting with anything else |
 | `data_?.txt` | `data_a.txt`, `data_1.txt` | `data_ab.txt`, `data_10.txt` |
 | `data_??.txt` | `data_ab.txt`, `data_10.txt` | `data_a.txt`, `data_abc.txt` |
@@ -435,7 +435,7 @@ cat names_clean.txt
 | Download hung with no progress | Network issue in Codespace | Ctrl+C, then try again; reload browser tab if persistent |
 | `md5sum -c` shows `FAILED` for all files | Wrong directory - files listed in checksums.md5 not found here | Run `ls` - confirm sample files and checksums.md5 are in the same directory |
 | `md5sum -c` shows `FAILED open or read` | A listed file doesn't exist | The file wasn't downloaded, or is in a different directory |
-| `cat f1 f2 > f1` lost content from `f1` | Redirected into a source file | Re-download `f1`; never redirect into a file you're reading from |
+| `cat file1 file2 > file1` lost content from `file1` | Redirected into a source file | Re-download `file1`; never redirect into a file you're reading from |
 | `mv` silently replaced an existing file | Target filename already existed | Re-download or rebuild the overwritten file; check target names before `mv` |
 | Wildcard matched too many files | Pattern too broad (e.g. `*` instead of `*.txt`) | Use `ls` first; narrow the pattern |
 | Wildcard matched too few files | Pattern too strict, or files not in current directory | `ls` to see what exists; check spelling and location |
