@@ -260,29 +260,29 @@ What's the difference in the results?
 
 **Part C. Preview before acting**
 
-**7.** You want to move only the three `fruit_?.txt` files to an `archive/` folder. Preview first:
+**7.** You want to move only the three `fruit_?.txt` files to an `fridge/` folder. Preview first:
 ```
-mkdir archive
+mkdir fridge
 ls fruit_?.txt
 ```
 Does the list show exactly what you want to move?
 
 **8.** Only after confirming, move the files:
 ```
-mv fruit_?.txt archive/
+mv fruit_?.txt fridge/
 ```
 
 **9.** Verify the result:
 ```
 ls
-ls archive/
+ls fridge/
 ```
-Are only the three fruit files (`fruit_a.txt`, `fruit_b.txt`, `fruit_c.txt`) in `archive/`?
+Are only the three fruit files (`fruit_a.txt`, `fruit_b.txt`, `fruit_c.txt`) in `fridge/`?
 
 **10.** Confirm that `fruit_info.txt`, `results_final.txt`, and `notes.txt` are still in `session_2`.
 
 **You are done when:**
-- `ls archive/` shows `fruit_a.txt`, `fruit_b.txt`, `fruit_c.txt`
+- `ls fridge/` shows `fruit_a.txt`, `fruit_b.txt`, `fruit_c.txt`
 - `fruit_info.txt`, `results_final.txt`, and `notes.txt` are still in `session_2/data`
 - You used `ls` to preview before running `mv`
 
