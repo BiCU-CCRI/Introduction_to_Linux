@@ -45,7 +45,7 @@ https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd60620
 https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/checksums.txt
 ```
 
-**3.** Verify the checksums using `md5sum`:
+**4.** Verify the checksums using `md5sum`:
 
 ---
 
