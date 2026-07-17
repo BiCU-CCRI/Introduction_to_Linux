@@ -122,7 +122,7 @@ Change directory (`cd`) into `session_1`: `cd session_1`
 
 **16.** Use `cd ..` to go up one level. Run `pwd`. Where are you?
 
-**17.** Use `cd ..` again to return to `session1`. Run `pwd` to confirm.
+**17.** Use `cd ..` again to return to `session_1`. Run `pwd` to confirm.
 
 **Part E - Clean up**
 
@@ -143,7 +143,7 @@ Change directory (`cd`) into `session_1`: `cd session_1`
 **Extension - if you finish early:**
 - Run `pwd` to check the current directory and copy the path.
 - Try `cd ~`. Where does it take you? Run `pwd` to check.
-- From your home directory, use `cd` with **Tab completion** or paste the path you copied earlier to return to the `session1` directory
+- From your home directory, use `cd` with **Tab completion** or paste the path you copied earlier to return to the `session_1` directory
 - Bonus point: run `cd ~`, `pwd`, `cd -`, and `pwd` - what does `cd -` do?
 
 ### Exercise 3: Build a Project Structure
@@ -162,26 +162,26 @@ projects/
     └── tasks.txt
 ```
 
-**Step 1 - Create the top-level directory:**
+**Part A - Create the top-level directory:**
 ```
 mkdir projects
 ```
 Confirm it exists with `ls`.
 
-**Step 2 - Create the two subdirectories:**
+**Part B - Create the two subdirectories:**
 ```
 mkdir projects/work
 mkdir projects/personal
 ```
-You can do this from `session1` - you don't need to `cd` into `projects` first.
+You can do this from `session_1` - you don't need to `cd` into `projects` first.
 
-**Step 3 - Create the files:**
+**Part C- Create the files:**
 ```
 touch projects/work/tasks.txt
 touch projects/personal/ideas.txt
 ```
 
-**Step 4 - Verify the structure:**
+**Part D - Verify the structure:**
 
 Navigate into `projects` and list with details:
 ```
@@ -201,23 +201,23 @@ You should see `tasks.txt`.
 
 Run `ls -l` instead. Use `man ls` to look into the command's manual to understand what the `-l` option shows
 
-**Step 5 - Return to `session_1`:**
+**Part E - Return to `session_1`:**
 
 From inside `work`, how many `cd ..` commands do you need to get back to `session_1`? Try it. Or use `cd /workspaces/Introduction_to_Linux/session_1`.
 
-**Step 6 - Verify from the top:**
+**Part F - Verify from the top:**
 
-Back in `session1`, run `ls -l projects/work` - you should see `tasks.txt` without navigating into the folder.
+Back in `session_1`, run `ls -l projects/work` - you should see `tasks.txt` without navigating into the folder.
 
 **You are done when:**
 - You created the directory structure described above with both `.txt` files in place
 - You can confirm the directory structure with `ls -l` from both outside and inside the folders
-- You can return to the `session1` directory from anywhere
+- You can return to the `session_1` directory from anywhere
 
 **Extension - if you finish early:**
 - Add a third subdirectory inside `projects` called `archive`
-- Create a file inside `archive` called `old_notes.txt` without navigating into `archive` (=using a path starting from `session1`)
-- Run `ls -l projects/` from `session1` to verify all three subdirectories
+- Create a file inside `archive` called `old_notes.txt` without navigating into `archive` (=using a path starting from `session_1`)
+- Run `ls -l projects/` from `session_1` to verify all three subdirectories
 - Try using **Tab completion** for every single `cd` and `mkdir` command
 - Test the difference between  `mkdir projects/docs/figures` and `mkdir -p projects/docs/figures` - what does `mkdir -p` do?
 
@@ -227,7 +227,7 @@ Back in `session1`, run `ls -l projects/work` - you should see `tasks.txt` witho
 
 **Goal:** Write content to files and then read it back.
 
-**Before you start:** Run `pwd` to confirm you're in `session1`. Run `ls` to see what's already there.
+**Before you start:** Run `pwd` to confirm you're in `session_1`. Run `ls` to see what's already there.
 
 **Part A - Create and write**
 
@@ -309,13 +309,14 @@ echo "cherry" >> fruits.txt
 | `ls -t` | Sort by modification time, newest first | `ls -t` |
 | `ls -r` | Reverse the sort order | `ls -r` |
 | `ls --help` | Show all available options | `ls --help` |
-| `cd` | Change directory | `cd session1` |
+| `cd` | Change directory | `cd session_1` |
 | `cd ..` | Go up one level | `cd ..` |
 | `cd ~` | Go to home directory | `cd ~` |
 | `mkdir` | Create a directory | `mkdir my_folder` |
 | `mkdir -p` | Create nested directories in one command | `mkdir -p a/b/c` |
 | `touch` | Create an empty file | `touch file.txt` |
 | `rm` | Delete a file (no undo) | `rm file.txt` |
+| `rmdir` | Delete an empty directory | `rmdir abc/` |
 | `echo` | Print text | `echo "hello"` |
 | `cat` | Read and display file contents | `cat file.txt` |
 | `clear` | Clear the terminal screen | `clear` |
