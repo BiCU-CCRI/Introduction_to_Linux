@@ -4,7 +4,7 @@ A course for CCRI users on how to use Linux and the command line.
 
 ## The Linux operating system - the OS of choice for high performance and scientific computing
 
-While most personal computers and laptops run Windows or macOS, Linux is the predominant operating system for high-performance computing (HPC) systems, including servers and computing clusters. In fact, Linux runs on all of the world's top 500 fastest supercomputers [^1]
+While most personal computers and laptops run Windows or macOS, Linux is the predominant operating system for high-performance computing (HPC) systems, including servers and computing clusters. In fact, Linux runs on all of the world's top 500 fastest supercomputers [^1].
 
 [^1]: Wikipedia contributors. "TOP500." *Wikipedia, The Free Encyclopedia*. Accessed 16 July 2026. https://en.wikipedia.org/wiki/TOP500
 
@@ -20,7 +20,7 @@ Another important reason Linux is the OS of choice for scientific computing is t
 
 Each of us interacts with a computer every day. It is easy to overlook that this involves first logging in with a user account, then giving the computer different tasks to perform. There are two main ways to interact with an operating system: a **graphical user interface (GUI)** or a **command line interface (CLI)**.
 
-<img width="3799" height="1159" alt="gui_vs_cli" src="https://github.com/user-attachments/assets/fa09bae2-5e13-4f97-ab23-b31a39e642d9" />
+<img width="3799" height="1159" alt="Comparison of a graphical user interface (GUI) and a command line interface (CLI)" src="https://github.com/user-attachments/assets/fa09bae2-5e13-4f97-ab23-b31a39e642d9" />
 
 <sup>*GUI vs CLI*</sup>
 
