@@ -1,0 +1,2 @@
+2322609bf7b52257a04c46463f994ff7  WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz
+ed1134ebea3839707ed7a44ec3128673  WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz.tbi
