@@ -11,7 +11,6 @@ Today we'll cover:
 2. **Exercise 1: First Commands**
 3. Filesystem & navigation
 4. **Exercise 2: Navigation**
-5. *Break*
 6. Creating files & directories
 7. **Exercise 3: Build a Project Structure**
 8. Writing data to files
@@ -27,11 +26,11 @@ A few things worth keeping in mind all session:
 - **Linux is case-sensitive.** `whoami` and `Whoami` are different commands.
 - **Read your error messages.** They almost always tell you exactly what went wrong - that's not a failure, it's the terminal helping you.
 - **`clear` only clears the screen**, it deletes nothing. Scroll up and everything is still there.
-- **Never use spaces in filenames.** `touch my notes.txt` creates *two* files (`my` and `notes.txt`), not one. Use underscores instead.
-- **`Ctrl+C` is always safe.** If the prompt shows `>` instead of `$`, you likely have an unclosed quote - `Ctrl+C` cancels and returns you to the prompt.
+- **Never use spaces in filenames.** `touch my notes.txt` creates *two* files (`my` and `notes.txt`), not one. Use underscores instead. Other _special_ characters you should avoid are, for example, `#`, `/`, `\`, ... see the full list at [Illegal Filename Characters](https://www.mtu.edu/umc/services/websites/writing/characters-avoid/)
+- **`Ctrl+C` is always safe.** If the prompt shows `>` instead of `$`, you likely have an unclosed quote, bracket, or similar - `Ctrl+C` cancels and returns you to the prompt.
 - **`rm` has no undo.** Deleting a file is permanent, with no confirmation and no trash bin.
 - **`>` overwrites silently; `>>` appends.** `>` replaces a file's entire content with no warning. Use `>` once to start a file, then `>>` for every line after.
-- **`pwd` is your reset button.** Whenever you're unsure where you are, run `pwd`. Whenever you're lost, `cd /codespaces/session1` gets you home.
+- **`pwd` provides the path to your current location.** Whenever you're unsure where you are, run `pwd`. 
 - **Use Tab completion constantly.** It prevents typos and helps you explore.
 
 ---
@@ -67,12 +66,11 @@ Read the error. How is it the same as the error above, and how is it different?
 **You are done when:**
 - You have run `whoami`, `ls`, and `clear` successfully
 - You have produced two error messages and can explain in one sentence what caused each one
-- You know what the up arrow does
+- You know what the up and down arrows do
 
 **Extension - if you finish early:**
 - Run `ls` twice in a row without changing anything. Is the output identical? What does that tell you?
 - Find a third command to type that produces a `command not found` error
-- Run `clear`. Now scroll up. What do you see?
 
 ---
 
@@ -80,77 +78,88 @@ Read the error. How is it the same as the error above, and how is it different?
 
 **Goal:** Move through the filesystem independently. Always know where you are.
 
-**Before you start:** Run `pwd` to confirm you're in `session1`.
+**Before you start:** Run `pwd` to confirm you're in `Introduction_to_Linux`.
+
+Change directory (`cd`) into `session_1`: `cd session_1`
 
 **Part A - Create and enter a folder**
 
 **1.** Create a new directory: `mkdir navigation_test`
 
-**2.** Confirm it was created: `ls` - you should see `navigation_test` in the list.
+**2.** Confirm it was created: `ls` - you should now see `navigation_test` in the list.
 
 **3.** Move into it: `cd navigation_test`
 
 **4.** Where are you now? `pwd` - what does the path show? How did it change?
 
-**5.** List the contents: `ls` - what do you see? Is that expected for a brand-new empty directory?
+**5.** List the contents: `ls` - what do you see? Was that expected for a new directory?
 
-**Part B - Move back up**
+**Part B - Create a file
 
-**6.** Go back up one level: `cd ..`
+**6.** `touch my_file`
 
-**7.** Confirm where you are: `pwd`
+**7.** Run `ls` again. What do you see?
 
-**8.** Is `navigation_test` still there? `ls`
+**Part C - Move back up**
 
-**9.** List the *contents* of `navigation_test` without entering it: `ls navigation_test` - what's inside it?
+**8.** Go back up one level: `cd ..`
 
-**Part C - Go deeper**
+**9.** Confirm where you are: `pwd`
 
-**10.** Enter `navigation_test` again.
+**10.** Is `navigation_test` still there? `ls`
 
-**11.** Inside it, create a folder called `sub_folder`: `mkdir sub_folder`
+**11.** List the *contents* of `navigation_test` without entering it: `ls navigation_test` - what's inside it?
 
-**12.** Enter `sub_folder`.
+**Part D - Go deeper**
 
-**13.** Run `pwd`. What is the full path now?
+**12.** Enter `navigation_test` again.
 
-**14.** Use `cd ..` to go up one level. Run `pwd`. Where are you?
+**13.** Inside it, create a folder called `sub_folder`: `mkdir sub_folder`
 
-**15.** Use `cd ..` again to return to `session1`. Run `pwd` to confirm.
+**14.** Enter `sub_folder`.
 
-**16.** Use `rm -r` to delete `navigation_test`.
+**15.** Run `pwd`. What is the full path now?
+
+**16.** Use `cd ..` to go up one level. Run `pwd`. Where are you?
+
+**17.** Use `cd ..` again to return to `session1`. Run `pwd` to confirm.
+
+**Part E - Clean up**
+
+**18.** Run `rm navigation_test`. Did it work? What message did you get?
+
+**19.** Run `rmdir navigation_test`. Did that work? What message did you get?
+
+**20.** Try `rmdir navigation_test/sub_folder`
+
+**21.** Either clean up directories such that they are empty and run `rmdir` or use `rm -r` to delete `navigation_test` to delete non-empty directories.
 
 **You are done when:**
-- You can navigate into and out of folders without referring to the cheat sheet
-- `pwd` reliably tells you where you are at any moment
-- You understand why an empty directory shows nothing when you run `ls`
-- You can delete folders and understand that `rm -r` deletes the specified folder and all its contents. The command does not ask for confirmation!
+- You can navigate into and out of folders. Bonus point: Without referring to the cheat sheet
+- You know how to use `pwd` to tell you where you are at any moment
+- You understand why newly created directory shows nothing when you run `ls`
+- You can delete folders and understand that `rm -r` deletes a folder including all its contents. The command does not ask for confirmation!
 
 **Extension - if you finish early:**
 - Run `pwd` to check the current directory and copy the path.
 - Try `cd ~`. Where does it take you? Run `pwd` to check.
-- From your home directory, use `cd` (with **Tab completion**) or paste the path you copied earlier to return to `session1`.
-
----
-
-*Break*
-
----
+- From your home directory, use `cd` with **Tab completion** or paste the path you copied earlier to return to the `session1` directory
+- Bonus point: run `cd ~`, `pwd`, `cd -`, and `pwd` - what does `cd -` do?
 
 ### Exercise 3: Build a Project Structure
 
 **Goal:** Build a directory hierarchy and navigate it confidently.
 
-**Before you start:** Run `pwd` to confirm you're in `session1`. Run `ls` to see what's already there.
+**Before you start:** Run `pwd` to confirm you're in `session_1`. Run `ls` to see what's already there.
 
-**Your goal is to create this structure inside `session1`:**
+**Your goal is to create this structure inside `session_1`:**
 
 ```
 projects/
-├── work/
-│   └── tasks.txt
-└── personal/
-    └── ideas.txt
+├── personal/
+│   └── ideas.txt
+└── work/
+    └── tasks.txt
 ```
 
 **Step 1 - Create the top-level directory:**
@@ -177,44 +186,46 @@ touch projects/personal/ideas.txt
 Navigate into `projects` and list with details:
 ```
 cd projects
-ls -l
+ls
 ```
-You should see `work` and `personal`.
+You should see `personal` and `work`.
 
 Run `tree` to display the directory structure of `projects`.
 
 Enter `work` and confirm:
 ```
 cd work
-ls -l
+ls
 ```
 You should see `tasks.txt`.
 
-**Step 5 - Return to `session1`:**
+Run `ls -l` instead. Use `man ls` to look into the command's manual to understand what the `-l` option shows
 
-From inside `work`, how many `cd ..` commands do you need to get back to `session1`? Try it. Or use `cd /codespaces/session1`.
+**Step 5 - Return to `session_1`:**
+
+From inside `work`, how many `cd ..` commands do you need to get back to `session_1`? Try it. Or use `cd /workspaces/Introduction_to_Linux/session_1`.
 
 **Step 6 - Verify from the top:**
 
 Back in `session1`, run `ls -l projects/work` - you should see `tasks.txt` without navigating into the folder.
 
 **You are done when:**
-- The directory structure above exists with both `.txt` files in place
-- You can confirm the structure with `ls -l` from inside the folders
-- You can return to `session1` from anywhere
+- You created the directory structure described above with both `.txt` files in place
+- You can confirm the directory structure with `ls -l` from both outside and inside the folders
+- You can return to the `session1` directory from anywhere
 
 **Extension - if you finish early:**
 - Add a third subdirectory inside `projects` called `archive`
-- Create a file inside `archive` called `old_notes.txt` without navigating into `archive` - do it with a path, from `session1`
+- Create a file inside `archive` called `old_notes.txt` without navigating into `archive` (=using a path starting from `session1`)
 - Run `ls -l projects/` from `session1` to verify all three subdirectories
 - Try using **Tab completion** for every single `cd` and `mkdir` command
-- Try `mkdir -p some_folder/nested_folder` - this creates both levels in a single command.
+- Test the difference between  `mkdir projects/docs/figures` and `mkdir -p projects/docs/figures` - what does `mkdir -p` do?
 
 ---
 
 ### Exercise 4: Writing & Reading Files
 
-**Goal:** Use `echo`, `>`, `>>`, and `cat` to write content to files and read it back.
+**Goal:** Write content to files and then read it back.
 
 **Before you start:** Run `pwd` to confirm you're in `session1`. Run `ls` to see what's already there.
 
@@ -226,9 +237,9 @@ Back in `session1`, run `ls -l projects/work` - you should see `tasks.txt` witho
 
 **3.** Append a second word to the same file: `echo "world" >> file2.txt`
 
-**4.** Read `file2.txt`: `cat file2.txt` - did both lines appear?
+**4.** Check the content of `file2.txt`: `cat file2.txt` - did both lines appear?
 
-**5.** Now read `file1.txt`: `cat file1.txt` - what's inside it? Is that what you expected?
+**5.** Now see `file1.txt`: `cat file1.txt` - what's inside it? Is that what you expected?
 
 **Part B - Understand the difference between `>` and `>>`**
 
@@ -243,15 +254,15 @@ echo "banana" >> fruits.txt
 echo "cherry" >> fruits.txt
 ```
 
-**9.** Read it back: `cat fruits.txt` - you should see all three lines.
+**9.** Read it back: `cat fruits.txt` - do you see your fruits?
 
 **Part C - Your own file**
 
 **10.** Create a file called `notes.txt`.
 
-**11.** Write at least **three lines** of any text into it using `echo`. Use `>` for the first line and `>>` for all subsequent lines.
+**11.** Write at least **three lines** of any text into it.
 
-**12.** Read the whole file back with `cat`.
+**12.** Read the content of `notes.txt`.
 
 **You are done when:**
 - You can explain in one sentence the difference between `>` and `>>`
@@ -269,20 +280,20 @@ echo "cherry" >> fruits.txt
 
 | Command | What it does |
 |---|---|
-| `whoami` | Print current username |
-| `pwd` | Print working directory |
+| `whoami` | Print your username |
+| `pwd` | Print current (working) directory |
 | `ls` / `ls -l` / `ls -lh` | List files (plain / detailed / human-readable sizes) |
-| `ls -t` / `ls -r` | Sort by time / reverse order |
-| `cd`, `cd ..`, `cd ~` | Change directory, go up one level, go home |
+| `ls -lt` / `ls -ltr` | Sort by time / reverse order |
+| `cd` / `cd ..` / `cd ~` / `cd -` | Change directory / go up one level  /  go to home  /  go to the last (previous) location |
 | `mkdir`, `mkdir -p` | Create a directory / create nested directories at once |
 | `touch` | Create an empty file |
-| `rm` | Delete a file - **no undo** |
+| `rm` / `rmdir` / `rm -r` | Delete a file / Delete an empty directory / Delete a non-empty directory (**no undo, no confirmation prompt**) |
 | `echo "text"` | Print text |
 | `cat` | Display file contents |
-| `clear` | Clear the screen (doesn't delete anything) |
-| `>` / `>>` | Redirect output to a file - overwrite / append |
+| `clear` | Clear the terminal screen (doesn't delete anything) |
+| `>` / `>>` | Redirect (save) output to a file - write (overwrite if not empty) / append |
 
-**Keyboard shortcuts:** `Tab` autocompletes · `Tab Tab` shows all matches · `↑` `↓` move through command history · `Ctrl+C` cancels the current command
+**Keyboard shortcuts:** `Tab` autocomplete · `Tab Tab` show all matches · `↑` `↓` move through command history · `Ctrl+C` cancel the current command
 
 ---
 
@@ -301,7 +312,6 @@ echo "cherry" >> fruits.txt
 | `cd` | Change directory | `cd session1` |
 | `cd ..` | Go up one level | `cd ..` |
 | `cd ~` | Go to home directory | `cd ~` |
-| `cd ~/session1` | Go directly to session1 from anywhere | `cd ~/session1` |
 | `mkdir` | Create a directory | `mkdir my_folder` |
 | `mkdir -p` | Create nested directories in one command | `mkdir -p a/b/c` |
 | `touch` | Create an empty file | `touch file.txt` |
