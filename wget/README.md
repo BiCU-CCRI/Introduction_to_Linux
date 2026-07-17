@@ -38,6 +38,27 @@ During the session, attendees will:
 - `mendel.txt`: https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/abc67ba8f3c6927ab6c03297bd8f0e79dbe4185b/wget/files/session3/mendel.txt
 - `mendel.txt.md5`: https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/abc67ba8f3c6927ab6c03297bd8f0e79dbe4185b/wget/files/session3/mendel.txt.md5
 
+### Session 4 — [`files/session4/`](files/session4)
+
+| File | Description |
+| --- | --- |
+| `session4_R1.fastq.gz` | Exercise file (FASTQ, read 1) |
+| `session4_R1.fastq.gz.md5` | MD5 checksum for `session4_R1.fastq.gz` (`md5sum -c session4_R1.fastq.gz.md5`) |
+| `session4_R2.fastq.gz` | Exercise file (FASTQ, read 2) |
+| `session4_R2.fastq.gz.md5` | MD5 checksum for `session4_R2.fastq.gz` (`md5sum -c session4_R2.fastq.gz.md5`) |
+| `WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz` | Exercise file (bgzipped VCF) |
+| `WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz.tbi` | Tabix index for the VCF above |
+| `checksums.txt` | MD5 checksums for the VCF and its index (`md5sum -c checksums.txt`) |
+
+**Download links (permalinks):**
+- `session4_R1.fastq.gz`: https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/session4_R1.fastq.gz
+- `session4_R1.fastq.gz.md5`: https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/session4_R1.fastq.gz.md5
+- `session4_R2.fastq.gz`: https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/session4_R2.fastq.gz
+- `session4_R2.fastq.gz.md5`: https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/session4_R2.fastq.gz.md5
+- `WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz`: https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz
+- `WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz.tbi`: https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz.tbi
+- `checksums.txt`: https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/checksums.txt
+
 ## Example workflow
 
 ```bash
