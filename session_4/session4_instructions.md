@@ -28,10 +28,10 @@ Today we'll cover:
 
 **1.** Download the FASTQ files:
 ```
-https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/session4_R1.fastq.gz  
-https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/session4_R1.fastq.gz  
-https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/session4_R1.fastq.gz.md5  
-https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/session4_R1.fastq.gz.md5  
+https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/session4_R1.fastq.gz
+https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/session4_R2.fastq.gz
+https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/session4_R1.fastq.gz.md5
+https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/session4_R2.fastq.gz.md5
 ```
 
 **2.** Download the VCF file:
@@ -124,7 +124,7 @@ zcat WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz | wc -l
 
 **2.** Print the first few lines to the screen without opening a reader:
 ```
-zcat session4_R1.gz | head
+zcat session4_R1.fastq.gz | head
 ```
 
 **3.** Print the last lines to the screen without opening a reader:
@@ -157,12 +157,12 @@ Check it: `cat vcf_header.txt`.
 
 **Goal:** Return the FASTQ file to its original compressed state.
 
-**1.** Compress the FASTQ file you unzipped in Exercise 4:
+**1.** Compress the FASTQ file you unzipped in Exercise 3:
 ```
-gzip session4_R1.fastq
+gzip session4_R*.fastq
 ```
 
-**2.** Confirm the result: `ls -lh`. Is `seqc2_wes_il1_l1_r2.fastq.gz` back, and is the plain `.fastq` version gone?
+**2.** Confirm the result: `ls -lh`. Are `session4_R1.fastq.gz` and `session4_R2.fastq.gz` back, and are the plain `.fastq` versions gone?
 
 **3.** Even though a `.gz` file is binary, it's still structured with a defined start and end - so two gzipped FASTQ files can be concatenated directly, and once decompressed, the combined file's order and logic will be exactly as valid as if you'd concatenated the uncompressed originals. 
 This is relevant when combining "laned" sequencing data
@@ -246,10 +246,9 @@ cat file_L1_R1.fastq file_L2_R1.fastq > file_merged_R1.fastq
 
 **Goal:** Produce a properly `bgzip`-compressed VCF and build an index that allows random access to specific regions.
 
-**Before you start:** You'll need an uncompressed `.vcf` to start from. If you removed it in Exercise 7, recreate it first:
-```
-gunzip --keep seqc2_wes_il1.chr17.vcf.gz
-```
+**Before you start:** You'll need an uncompressed `.vcf` to start from. If you removed it in Exercise 3, recreate it first:
+
+    gunzip --keep WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz
 
 **1.** Compress the plain VCF with `bgzip` instead of `gzip`:
 ```
