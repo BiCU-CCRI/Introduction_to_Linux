@@ -24,22 +24,25 @@ Today we'll cover:
 
 **Goal:** Download the FASTQ and VCF files for this session, along with their checksums.
 
-**Before you start:** `cd session4`
+**Before you start:** `cd session_4`
 
 **1.** Download the FASTQ files:
 ```
-[PASTE URL FOR seqc2_wes_il1_l1_r1.fastq.gz]
-[PASTE URL FOR seqc2_wes_il1_l1_r2.fastq.gz]
+https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/session4_R1.fastq.gz  
+https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/session4_R1.fastq.gz  
+https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/session4_R1.fastq.gz.md5  
+https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/session4_R1.fastq.gz.md5  
 ```
 
 **2.** Download the VCF file:
 ```
-[PASTE URL FOR seqc2_wes_il1.chr17.vcf.gz]
+https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz  
+https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz.tbi  
 ```
 
 **3.** Download the checksums file:
 ```
-[PASTE URL FOR checksums.md5]
+https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/checksums.txt
 ```
 
 **3.** Verify the checksums using `md5sum`:
@@ -52,11 +55,11 @@ Today we'll cover:
 
 **1.** Look at the start of the FASTQ file:
 ```
-head seqc2_wes_il1_l1_r1.fastq.gz
+head session4_R1.fastq.gz
 ```
 Does this look like readable text?
 
-**3.** Try `less seqc2_wes_il1_l1_r2.fastq.gz`. Does it look any better? Quit with `q`.
+**2.** Try `less session4_R1.fastq.gz`. Does it look any better? Quit with `q`.
 
 ### Exercise 3: Unzipping Files
 
@@ -64,28 +67,28 @@ Does this look like readable text?
 
 **1.** Decompress the FASTQ files:
 ```
-gunzip seqc2_wes_il1_l1_r*.fastq.gz
+gunzip session4_R*.fastq.gz
 ```
 
-**2.** Check what's in the folder now: `ls -lh`. Is `seqc2_wes_il1_l1_r2.fastq.gz` still there?
+**2.** Check what's in the folder now: `ls -lh`. Is `session4_R2.fastq.gz` still there?
 
 **3.** Now decompress the VCF file, but with `gunzip -k`, what did it do?
 ```
-gunzip --keep seqc2_wes_il1.chr17.vcf.gz
+gunzip -k WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz
 ```
 
 **4.** Check the folder again: `ls -lh`. Look at the difference in file sizes.
 
 **5.** Try `head` and `less` again on both decompressed files:
 ```
-head seqc2_wes_il1_l1_r2.fastq
-less seqc2_wes_il1.chr17.vcf
+head session4_R1.fastq
+less WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf
 ```
 
 **You are done when:**
-- `seqc2_wes_il1_l1_r2.fastq` exists and is readable with `head`
-- Both `seqc2_wes_il1.chr17.vcf` and `seqc2_wes_il1.chr17.vcf.gz` exist
-- You can explain the difference between plain `gunzip` and `gunzip --k`
+- `session4_R1.fastq` exists and is readable with `head`
+- Both `WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf` and `WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz` exist
+- You can explain the difference between plain `gunzip` and `gunzip -k`
 
 ---
 
@@ -95,17 +98,17 @@ less seqc2_wes_il1.chr17.vcf
 
 **1.** Open the compressed VCF directly:
 ```
-zless seqc2_wes_il1.chr17.vcf.gz
+zless WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz
 ```
 Navigate with the arrow keys, same as `less`. Quit with `q`.
 
 **2.** VCF lines can be very long. Try the same file with line-wrap turned off:
 ```
-zless -S seqc2_wes_il1.chr17.vcf.gz
+zless -S WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz
 ```
 
 **You are done when:**
-- You can open `seqc2_wes_il1.chr17.vcf.gz` with `zless` and navigate it
+- You can open `WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz` with `zless` and navigate it
 - You can explain the difference between `zless` and `zless -S`
 
 ---
@@ -116,17 +119,17 @@ zless -S seqc2_wes_il1.chr17.vcf.gz
 
 **1.** Count the total number of lines in the compressed file:
 ```
-zcat seqc2_wes_il1.chr17.vcf.gz | wc -l
+zcat WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz | wc -l
 ```
 
 **2.** Print the first few lines to the screen without opening a reader:
 ```
-zcat seqc2_wes_il1.chr17.vcf.gz | head
+zcat session4_R1.gz | head
 ```
 
 **3.** Print the last lines to the screen without opening a reader:
 ```
-zcat seqc2_wes_il1.chr17.vcf.gz | tail
+zcat session4_R1.fastq.gz | tail
 ```
 Do you notice a difference to `head`?
 
@@ -134,17 +137,17 @@ Do you notice a difference to `head`?
 
 **5.** Search for a specific value inside the compressed file - for example, lines marked `PASS`:
 ```
-zcat seqc2_wes_il1.chr17.vcf.gz | grep "PASS" | wc -l
+zcat WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz | grep "PASS" | wc -l
 ```
 
 **6.** Write just the header lines out to their own file, still without decompressing anything to disk:
 ```
-zcat seqc2_wes_il1.chr17.vcf.gz | grep "^#" > vcf_header.txt
+zcat WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz | grep "#" > vcf_header.txt
 ```
 Check it: `cat vcf_header.txt`.
 
 **You are done when:**
-- You can report the total line count, the data-line count, and the header-line count for `seqc2_wes_il1.chr17.vcf.gz`
+- You can report the total line count, the data-line count, and the header-line count for `WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz`
 - `vcf_header.txt` exists and contains only the header lines
 - At no point in this exercise did you create a decompressed copy of the VCF on disk
 
@@ -156,7 +159,7 @@ Check it: `cat vcf_header.txt`.
 
 **1.** Compress the FASTQ file you unzipped in Exercise 4:
 ```
-gzip seqc2_wes_il1_l1_r2.fastq
+gzip session4_R1.fastq
 ```
 
 **2.** Confirm the result: `ls -lh`. Is `seqc2_wes_il1_l1_r2.fastq.gz` back, and is the plain `.fastq` version gone?
@@ -250,19 +253,19 @@ gunzip --keep seqc2_wes_il1.chr17.vcf.gz
 
 **1.** Compress the plain VCF with `bgzip` instead of `gzip`:
 ```
-bgzip seqc2_wes_il1.chr17.vcf
+bgzip WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf
 ```
-Check the result with `ls -lh` - notice the file is a `.gz` again, but produced differently than in Exercise 7.
+Check the result with `ls -lh` - notice the file is a `.gz` again, but produced differently than in Exercise 6.
 
 **2.** Build an index for it:
 ```
-tabix -p vcf seqc2_wes_il1.chr17.vcf.gz
+tabix -p vcf WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz
 ```
 
 **3.** Check what was created: `ls -lh`. You should see a new file ending in `.tbi`.
 
 **You are done when:**
-- `seqc2_wes_il1.chr17.vcf.gz` exists as a `bgzip`-compressed file
+- `WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz` exists as a `bgzip`-compressed file
 - A matching `.tbi` index file exists alongside it
 
 **Extension - if you finish early:**
