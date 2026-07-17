@@ -11,11 +11,11 @@ Today we'll cover:
 2. **Exercise 1: First Commands**
 3. Filesystem & navigation
 4. **Exercise 2: Navigation**
-6. Creating files & directories
-7. **Exercise 3: Build a Project Structure**
-8. Writing data to files
-9. **Exercise 4: Writing & Reading Files**
-10. Wrap-up
+5. Creating files & directories
+6. **Exercise 3: Build a Project Structure**
+7. Writing data to files
+8. **Exercise 4: Writing & Reading Files**
+9. Wrap-up
 
 ---
 
@@ -94,7 +94,7 @@ Change directory (`cd`) into `session_1`: `cd session_1`
 
 **5.** List the contents: `ls` - what do you see? Was that expected for a new directory?
 
-**Part B - Create a file
+**Part B - Create a file**
 
 **6.** `touch my_file`
 
@@ -132,7 +132,7 @@ Change directory (`cd`) into `session_1`: `cd session_1`
 
 **20.** Try `rmdir navigation_test/sub_folder`
 
-**21.** Either clean up directories such that they are empty and run `rmdir` or use `rm -r` to delete `navigation_test` to delete non-empty directories.
+**21.** Either empty the directory and use `rmdir`, or use `rm -r navigation_test` to remove a non-empty directory.
 
 **You are done when:**
 - You can navigate into and out of folders. Bonus point: Without referring to the cheat sheet
@@ -175,7 +175,7 @@ mkdir projects/personal
 ```
 You can do this from `session_1` - you don't need to `cd` into `projects` first.
 
-**Part C- Create the files:**
+**Part C - Create the files:**
 ```
 touch projects/work/tasks.txt
 touch projects/personal/ideas.txt
