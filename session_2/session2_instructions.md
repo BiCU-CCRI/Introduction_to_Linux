@@ -12,12 +12,11 @@ Today we'll cover:
 3. **Exercise 2 - Part A: Download**
 4. Verifying files with `md5sum`
 5. **Exercise 2 - Part B: Verify**
-6. *Break*
-7. Combining & organizing files
-8. **Exercise 3: Combine & Organize**
-9. Wildcards
-10. **Exercise 4: Wildcards**
-11. Wrap-up
+6. Combining & organizing files
+7. **Exercise 3: Combine & Organize**
+8. Wildcards
+9. **Exercise 4: Wildcards**
+10. Wrap-up
 
 ---
 
@@ -67,7 +66,7 @@ pwd
 **11.** Without entering the `my_work` directory, list its contents.
 
 **You are done when:**
-- `cat log.txt` shows all three lines
+- `log.txt` contains all three lines.
 - You are back in `session_2` confirmed with `pwd`
 - `ls my_work` shows `log.txt`
 
@@ -230,12 +229,11 @@ ls
 
 **Goal:** Use wildcards to select groups of files precisely and apply the `ls`-before-acting habit.
 
-**Before you start:** confirm `fruit_a.txt`, `fruit_b.txt`, `fruit_c.txt`, `fruit_info.txt`, `results_final.txt`, and `notes.txt` are already in your `session_2/data` folder.
+**Before you start:** `cd session_2/data` and confirm `fruit_a.txt`, `fruit_b.txt`, `fruit_c.txt`, `fruit_info.txt`, `results_final.txt`, and `notes.txt` are present.
 
 **Part A. Explore `*`**
 
 **1.** List all `.txt` files: `ls *.txt` - how many files match?
-
 **2.** List only files starting with `fruit_`: `ls fruit_*`
 
 **3.** Now try `ls fruit_*.txt`. What's the difference compared to previous `ls fruit_*`?
@@ -260,7 +258,7 @@ What's the difference in the results?
 
 **Part C. Preview before acting**
 
-**7.** You want to move only the three `fruit_?.txt` files to an `fridge/` folder. Preview first:
+**7.** You want to move only the three `fruit_?.txt` files to a `fridge/` folder. Preview first:
 ```
 mkdir fridge
 ls fruit_?.txt
@@ -279,7 +277,7 @@ ls fridge/
 ```
 Are only the three fruit files (`fruit_a.txt`, `fruit_b.txt`, `fruit_c.txt`) in `fridge/`?
 
-**10.** Confirm that `fruit_info.txt`, `results_final.txt`, and `notes.txt` are still in `session_2`.
+**10.** Confirm that `fruit_info.txt`, `results_final.txt`, and `notes.txt` are still in `session_2/data`.
 
 **You are done when:**
 - `ls fridge/` shows `fruit_a.txt`, `fruit_b.txt`, `fruit_c.txt`
@@ -289,7 +287,7 @@ Are only the three fruit files (`fruit_a.txt`, `fruit_b.txt`, `fruit_c.txt`) in 
 **Extension - if you finish early:**
 - What does `ls ?????.txt` match? Count the `?` characters and explain why.
 - Try moving `fruit_info.txt` and `results_final.txt` into a new `misc/` directory using one `mv` command with a wildcard. Preview with `ls` first.
-- What would `cat organized/raw/*.txt > organized/combined/combined_v2.txt` do?
+- From the `session_2/` directory, what would `cat organized/raw/*.txt > organized/combined/combined_v2.txt` do?
 
 ---
 
@@ -350,7 +348,7 @@ cat names_clean.txt
 - `names_clean.txt` exists and contains no duplicate lines
 
 **Extension - if you finish early:**
-- Look closely at `names.txt` - two entries look almost identical but aren't exact duplicates (case, trailing space). Does `sort | uniq` catch them? Why not?
+- Add the names `priya` and `Devon ` (note the trailing space after `Devon`) to `names.txt`. Then run `sort | uniq` again. Are these new entries removed as duplicates? If not, why do you think `uniq` treats them as different?
 - Try `sort -u names.txt` - how does the output compare to `sort names.txt | uniq`?
 - What would `cat names.txt names.txt | sort | uniq` do, and why?
 
@@ -376,7 +374,7 @@ cat names_clean.txt
 | `*` | Wildcard: any number of any characters |
 | `?` | Wildcard: exactly one character |
 | `sort file` | Sort lines alphabetically |
-| `sort file \| uniq` | Remove adjacent duplicate lines|
+| `sort file | uniq` | Remove adjacent duplicate lines|
 | `sort -u file` | Shortcut for `sort | uniq` |
 | `uniq -c` | Count occurrences of each line |
 
