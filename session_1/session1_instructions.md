@@ -106,17 +106,17 @@ Change directory (`cd`) into `session_1`: `cd session_1`
 
 **9.** Confirm where you are: `pwd`
 
-**10.** Is `navigation_test` still there? `ls`
+**10.** Is `navigation_test` still there? Use `ls` to see the content.
 
-**11.** List the *contents* of `navigation_test` without entering it: `ls navigation_test` - what's inside it?
+**11.** List the *contents* of `navigation_test` without entering it: `ls navigation_test` - what's inside?
 
 **Part D - Go deeper**
 
-**12.** Enter `navigation_test` again.
+**12.** Move into `navigation_test` again.
 
-**13.** Inside it, create a folder called `sub_folder`: `mkdir sub_folder`
+**13.** While inside, create a folder called `sub_folder` with `mkdir sub_folder`
 
-**14.** Enter `sub_folder`.
+**14.** Move into `sub_folder`.
 
 **15.** Run `pwd`. What is the full path now?
 
