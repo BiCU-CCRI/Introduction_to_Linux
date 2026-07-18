@@ -56,7 +56,7 @@ This course is designed to run in [GitHub Codespaces](https://github.com/feature
 2. Click the green **Code** button.
 3. Select the **Codespaces** tab.
 4. Click **Create codespace on main**.
-5. Wait for the environment to build - this can take a minute or two the first time.
+5. Wait for the environment to build - this can take up to 5 minutes the first time.
 
 <!-- TODO: Add screenshot of "Create codespace on main" when repository is close to finished -->
 
@@ -65,11 +65,19 @@ Once it is ready, you will have a complete Linux environment running in your bro
 
 You can experiment freely in this environment — if something goes wrong, you can always restart the Codespace or return to the original course files.
 
+### Managing GitHub Codespaces
+
 > [!NOTE]
-> GitHub Codespaces is free for individual users within the included monthly usage allowance (currently up to 60 hours per month). This should be sufficient to complete this introductory course.
+> GitHub Codespaces is free for individual users within the included monthly usage allowance (currently up to 60 hours per month). This should be sufficient to complete this introductory course. If you leave your Codespace open or stop working for the day, it will automatically stop after 30 minutes of inactivity. Your files will be saved, and you can restart the Codespace when you return.
 
 > [!TIP]
 > **When you have finished the course:** Remember to delete your Codespace if you no longer need it. Codespaces that are left unused can continue to count towards your storage and usage limits. You can always create a new Codespace from this repository again in the future if needed.
+
+
+You can view and manage your Codespaces at https://github.com/codespaces. Click the `...` options menu next to a Codespace. There you can find options to stop or delete it. Remember, stopping pauses the environment while keeping your work. Delete a Codespace only when you have finished with it.
+<img width="1160" height="543" alt="managing_codespaces" src="https://github.com/user-attachments/assets/a3855630-6dc9-4157-a23d-1130f9ce9215" />
+
+
 
 ### Following the sessions
 
@@ -107,4 +115,4 @@ You won't remember every command or option, and that's fine - knowing how to loo
 
 ---
 
-Let's get started!
+## Let's get started!
