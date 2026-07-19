@@ -10,10 +10,10 @@ Today we'll cover:
 1. Recap of Session 3
 2. **Exercise 1: Download and Verify**
 3. **Exercise 2: A First Look at FASTQ and VCF**
-4. **Exercise 3: Unzipping Files**
+4. **Exercise 3: Decompressing Files**
 5. **Exercise 4: Reading Compressed Files Directly**
-6. **Exercise 5: Piping zcat**
-7. **Exercise 6: Re-compressing**
+6. **Exercise 5: Piping the content of a compressed file**
+7. **Exercise 6: Compressing**
 8. Wrap-up
 
 ---
@@ -22,11 +22,11 @@ Today we'll cover:
 
 ### Exercise 1: Download and Verify
 
-**Goal:** Download the FASTQ and VCF files for this session, along with their checksums.
+**Goal:** Download the FASTQ and VCF files for this session, along with their MD5 files.
 
-**Before you start:** `cd session_4`
+**Before you start:** `cd /workspaces/Introduction_to_Linux/session_4`
 
-**1.** Download the FASTQ files:
+**1.** Download the FASTQ files and their MD5 files:
 ```
 https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/session4_R1.fastq.gz
 https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/session4_R2.fastq.gz
@@ -34,18 +34,18 @@ https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd60620
 https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/session4_R2.fastq.gz.md5
 ```
 
-**2.** Download the VCF file:
+**2.** Download the VCF file and its index:
 ```
 https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz  
 https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz.tbi  
 ```
 
-**3.** Download the checksums file:
+**3.** Download the MD5 checksum file:
 ```
 https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/checksums.txt
 ```
 
-**4.** Verify the checksums using `md5sum`:
+**4.** Verify the MD5 sums using `md5sum`:
 
 ---
 
@@ -61,18 +61,18 @@ Does this look like readable text?
 
 **2.** Try `less session4_R1.fastq.gz`. Does it look any better? Quit with `q`.
 
-### Exercise 3: Unzipping Files
+### Exercise 3: Decompressing Files
 
 **Goal:** Decompress the gzipped files
 
-**1.** Decompress the FASTQ files:
+**1.** Decompress the compressed FASTQ file(s):
 ```
 gunzip session4_R*.fastq.gz
 ```
 
 **2.** Check what's in the folder now: `ls -lh`. Is `session4_R2.fastq.gz` still there?
 
-**3.** Now decompress the VCF file, but with `gunzip -k`, what did it do?
+**3.** Now decompress the compressed VCF file, but use `gunzip -k`. What happened?
 ```
 gunzip -k WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz
 ```
@@ -88,21 +88,21 @@ less WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf
 **You are done when:**
 - `session4_R1.fastq` exists and is readable with `head`
 - Both `WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf` and `WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz` exist
-- You can explain the difference between plain `gunzip` and `gunzip -k`
+- You can explain the difference between simple `gunzip` and `gunzip -k`
 
 ---
 
 ### Exercise 4: Reading Compressed Files Directly
 
-**Goal:** Look inside a compressed file without decompressing it to disk at all.
+**Goal:** Look inside a compressed file without needing to decompress it first.
 
 **1.** Open the compressed VCF directly:
-```
+On most Linux systems, `less` can display compressed files directly. Alternatively, you can use `zless`, which is specifically designed for viewing compressed files.
 zless WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz
 ```
 Navigate with the arrow keys, same as `less`. Quit with `q`.
 
-**2.** VCF lines can be very long. Try the same file with line-wrap turned off:
+**2.** VCF lines can be very long. Try the same file with the automatic line-wrap turned off:
 ```
 zless -S WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz
 ```
@@ -113,9 +113,9 @@ zless -S WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz
 
 ---
 
-### Exercise 5: Piping zcat
+### Exercise 5: Piping the content of a compressed file
 
-**Goal:** Combine `zcat` with tools you already know to answer questions about the compressed VCF, without ever decompressing it to disk.
+**Goal:** Combine `zcat` to read the content of a compressed file with tools you already know to answer questions about the compressed VCF, without ever decompressing it to disk.
 
 **1.** Count the total number of lines in the compressed file:
 ```
@@ -131,11 +131,10 @@ zcat session4_R1.fastq.gz | head
 ```
 zcat session4_R1.fastq.gz | tail
 ```
-Do you notice a difference to `head`?
 
-**4.** Did you notice how VCF files are structured? How would you go about counting number of variants?
+**4.** Did you notice how VCF files are structured? How would you go about counting the number of variants?
 
-**5.** Search for a specific value inside the compressed file - for example, lines marked `PASS`:
+**5.** Search for a specific variant inside the compressed file - for example, variants marked as `PASS`:
 ```
 zcat WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz | grep "PASS" | wc -l
 ```
@@ -147,24 +146,24 @@ zcat WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz | grep "#" >
 Check it: `cat vcf_header.txt`.
 
 **You are done when:**
-- You can report the total line count, the data-line count, and the header-line count for `WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz`
+- You can report the total line count, the variants-line count, and the header-line count for `WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz`
 - `vcf_header.txt` exists and contains only the header lines
 - At no point in this exercise did you create a decompressed copy of the VCF on disk
 
 ---
 
-### Exercise 6: Re-compressing
+### Exercise 6: Compressing
 
 **Goal:** Return the FASTQ file to its original compressed state.
 
-**1.** Compress the FASTQ file you unzipped in Exercise 3:
+**1.** Compress the FASTQ file you decompressed in Exercise 3:
 ```
 gzip session4_R*.fastq
 ```
 
-**2.** Confirm the result: `ls -lh`. Are `session4_R1.fastq.gz` and `session4_R2.fastq.gz` back, and are the plain `.fastq` versions gone?
+**2.** Confirm the result: `ls -lh`. Are `session4_R1.fastq.gz` and `session4_R2.fastq.gz` back, and are the decompressed `.fastq` versions gone?
 
-**3.** Even though a `.gz` file is binary, it's still structured with a defined start and end - so two gzipped FASTQ files can be concatenated directly, and once decompressed, the combined file's order and logic will be exactly as valid as if you'd concatenated the uncompressed originals. 
+**3.** Even though a `.gz` file is a compressed binary file, it's still structured with a defined start and end - so two gzipped files can be concatenated directly, and once decompressed, the combined file's order and logic will be exactly as valid as if you'd concatenated the uncompressed originals. 
 This is relevant when combining "laned" sequencing data
 ```
 cat file_L1_R1.fastq.gz file_L2_R1.fastq.gz > file_merged_R1.fastq.gz
@@ -181,12 +180,13 @@ cat file_L1_R1.fastq file_L2_R1.fastq > file_merged_R1.fastq
 | Command | What it does |
 |---|---|
 | `gunzip file.gz` | Decompress a file (original `.gz` is removed) |
-| `gunzip --keep file.gz` / `gunzip -k file.gz` | Decompress, keeping the compressed original too |
+| `gunzip -k file.gz` | Decompress, keeping the compressed original too |
+| `gunzip -c file.gz` |  Show the content of the compressed file, keeping the original too | 
 | `gzip file` | Compress a file (original is removed) |
 | `zless file.gz` | Open a compressed file in a reader, like `less` |
 | `zless -S file.gz` | Same, but without line-wrapping - scroll sideways |
 | `zcat file.gz` | Print a compressed file's contents, like `cat` |
-| `zcat file.gz \| command` | Pipe a compressed file's contents into another command |
+| `zcat file.gz \| head` | Pipe a compressed file's contents into another head (or other command) |
 | `bgzip file` | Block-compress a file (needed for indexing with `tabix`) |
 | `tabix -p vcf file.vcf.gz` | Build a random-access index for a bgzipped VCF |
 
@@ -198,6 +198,7 @@ cat file_L1_R1.fastq file_L2_R1.fastq > file_merged_R1.fastq
 |---|---|---|
 | `gunzip file.gz` | Decompress a `.gz` file, replacing the original | `gunzip sample.fastq.gz` |
 | `gunzip --keep file.gz` | Decompress, keeping the original `.gz` | `gunzip --keep sample.vcf.gz` |
+| `gunzip -c file.gz` | Decompress a file but send the file's content to the terminal instead of a file | `gunzip -c sample.fastq.gz | head` |  
 | `gzip file` | Compress a file, replacing it | `gzip sample.fastq` |
 | `zless file.gz` | Read a compressed file interactively | `zless sample.vcf.gz` |
 | `zless -S file.gz` | Read a compressed file without line-wrap | `zless -S sample.vcf.gz` |
@@ -224,7 +225,7 @@ cat file_L1_R1.fastq file_L2_R1.fastq > file_merged_R1.fastq
 | `head file` / `tail file` | Show the first / last 10 lines |
 | `less file` | Open a file in a safe, read-only reader |
 | `grep "word" file` | Print lines containing "word" |
-| `command1 \| command2` | Pipe: send the output of one command into another |
+| `command1 \| command2` | Pipe (send) the output of the previous command into the next |
 
 ---
 
@@ -232,7 +233,7 @@ cat file_L1_R1.fastq file_L2_R1.fastq > file_merged_R1.fastq
 
 | Error or symptom | Cause | Fix |
 |---|---|---|
-| `head`/`tail`/`less`/`cat` show unreadable characters | File is compressed (`.gz`) | Use `zless`/`zcat`, or `gunzip` it first |
+| `head`/`tail`/`less`/`cat` show unreadable characters | File is compressed (`.gz`) | Use `zless`/`zcat`, or decompress it with `gunzip` first |
 | `wc -l` on a `.gz` file gives a strange number | Counting compressed bytes, not text lines | Use `zcat file.gz \| wc -l` instead |
 | `gzip: file already exists` | A file with the target name is already present | Remove or rename the existing file first, or use `gzip -f` to force overwrite |
 | Original `.gz` disappeared after `gunzip` | Default behaviour - `gunzip` removes the compressed file | Use `gunzip --keep` next time if you need both versions |
@@ -246,11 +247,13 @@ cat file_L1_R1.fastq file_L2_R1.fastq > file_merged_R1.fastq
 
 **Goal:** Produce a properly `bgzip`-compressed VCF and build an index that allows random access to specific regions.
 
+`bgzip` is a special type of compression used in genomics because it works with indexing tools such as `tabix`. Together, they allow fast access to specific regions of large files without reading the entire file.
+
 **Before you start:** You'll need an uncompressed `.vcf` to start from. If you removed it in Exercise 3, recreate it first:
 
-    gunzip --keep WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz
+    gunzip -k WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz
 
-**1.** Compress the plain VCF with `bgzip` instead of `gzip`:
+**1.** Compress the decompressed VCF with `bgzip` instead of `gzip`:
 ```
 bgzip WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf
 ```
@@ -261,7 +264,17 @@ Check the result with `ls -lh` - notice the file is a `.gz` again, but produced 
 tabix -p vcf WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz
 ```
 
-**3.** Check what was created: `ls -lh`. You should see a new file ending in `.tbi`.
+**3.** Check what was created: `ls -lh`. You should see a new file with `.tbi` ending.
+
+
+**3.** Extract variants from a genomic region:
+The TP53 gene is located on chromosome 17. We first look up the coordinates for the TP53 gene on GRCh38/hg38.
+
+> Note: Genomic coordinates depend on the reference genome version, so the same gene can have different coordinates in different genome assemblies. 
+
+And then run `tabix variants.vcf.gz chr17:7668421-7687490`
+
+We can now quickly retrieve only the variants in this gene's region without searching through the entire file.
 
 **You are done when:**
 - `WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz` exists as a `bgzip`-compressed file
