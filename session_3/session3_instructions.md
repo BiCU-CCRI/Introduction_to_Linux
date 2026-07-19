@@ -338,12 +338,12 @@ The variable `search_word` takes one value at a time - first `Hybriden`, then `G
 | `head file` / `head -n N file` | Show the first 10 lines / first N lines |
 | `tail file` / `tail -n N file` | Show the last 10 lines / last N lines |
 | `less file` | Open a file in a safe, read-only reader (`q` to quit) |
-| `grep "word" file` | Print every line containing "word" |
+| `grep "Word" file` | Print every line containing `Word` |
 | `grep -i "word" file` | Case-insensitive search |
 | `grep -c "word" file` | Count matching lines instead of printing them |
-| `chmod +x script.sh` | Make a script executable |
-| `bash script.sh` / `./script.sh` | Run a script |
-| `$1`, `$2`, ... | Arguments passed to a script |
+| `chmod u+x script.sh` | Make a script executable for the script owner (user) |
+| `bash script.sh` / `./script.sh` | Run a script. The first one doesn't require `x` permissions, while the second one does |
+| `$1`, `$2`, ... | Arguments passed to a Bash script |
 | `for x in a b c; do ...; done` | Repeat a command block for each value |
 
 ---
@@ -362,9 +362,9 @@ The variable `search_word` takes one value at a time - first `Hybriden`, then `G
 | `grep "word" file` | Print all lines containing "word" | `grep "Hybriden" mendel.txt` |
 | `grep -i "word" file` | Case-insensitive search | `grep -i "hybriden" mendel.txt` |
 | `grep -v "word" file` | Print all  lines NOT containing "word" | `grep -v "Generation" mendel.txt` |
-| `chmod +x file` | Make a file executable | `chmod +x my_script.sh` |
-| `bash script.sh` | Run a script with bash | `bash my_script.sh` |
-| `./script.sh` | Run an executable script directly | `./my_script.sh` |
+| `chmod u+x file` | Make a file executable for the user | `chmod u+x my_script.sh` |
+| `bash script.sh` | Run a script with Bash | `bash my_script.sh` |
+| `./script.sh` | Run an executable script | `./my_script.sh` |
 | `diff file1 file2` | Check if files are identical, print differences if not | `diff mendel_Hybride.txt mendel_Hybriden.txt` |
 
 **Inside `less`:**
@@ -372,12 +372,13 @@ The variable `search_word` takes one value at a time - first `Hybriden`, then `G
 | Key | Action |
 |---|---|
 | `↑` `↓` / arrow keys | Scroll up and down |
-| `/word` | Search forward for "word" |
-| `?word` | Search backward for "word" |
+| `/` then `word` | Search forward for "word" |
+| `?` then `word` | Search backward for "word" |
 | `n` | Jump to next match |
 | `N` | Jump to previous match |
 | `g` | Jump to the start of the document |
 | `G` | Jump to the end of the document |
+| `Esc` and then `u` | Stop the search | 
 | `q` | Quit `less` |
 
 **Scripting basics:**
@@ -386,10 +387,10 @@ The variable `search_word` takes one value at a time - first `Hybriden`, then `G
 |---|---|---|
 | `#!/bin/bash` | Shebang line - tells the OS which interpreter to use | First line of the script |
 | `.sh` extension | Signals the file is a shell script | `my_script.sh` |
-| `variable=value` | Assigns a value to a variable | `grep_word=Generation` |
+| `variable="value"` | Assigns a value to a variable | `search_word="Generation"` |
 | `${variable}` | Uses the variable's value | `grep "${grep_word}" file` |
-| `$1`, `$2`, ... | Positional arguments passed to the script | `bash variables.sh Generation` |
-| `for x in a b c; do ...; done` | Loops over a list of values | See Exercise 7 |
+| `$1`, `$2`, ... | Positional arguments passed to a Bash script | `bash variables.sh Generation` |
+| `for x in a b c; do ...; done` | Loops over a list of values | See Exercise 8 |
 
 ---
 
@@ -402,12 +403,12 @@ The variable `search_word` takes one value at a time - first `Hybriden`, then `G
 | `cd folder` / `cd ..` | Enter a directory / go up one level |
 | `mkdir name` | Create a directory |
 | `touch file` | Create an empty file |
-| `echo "text" > file` / `>>` | Write to a file (overwrite / append) |
+| `echo "text" > file` / `echo "text" >> file` | Write to a file (overwrite / append) |
 | `cat file` | Read a file |
 | `md5sum -c file.md5` | Verify files against a checksums file |
 | `mv old new` | Rename or move a file |
 | `cp file copy` | Copy a file |
-| `*`, `?` | Wildcards - any number of characters / exactly one |
+| `*`, `?` | Wildcards - any number of any characters / exactly one |
 
 ---
 
@@ -454,13 +455,13 @@ Once a script works with one variable, it's often worth generalizing further - f
 ```
 #!/bin/bash
 
-txt_path=$1
-grep_word=$2
-txt_filename=$(basename ${txt_path})
-out_file=${grep_word}_${txt_filename}
+txt_path="$1"
+grep_word="$2"
+txt_filename="$(basename ${txt_path})"
+out_file="${grep_word}"_"${txt_filename}"
 
-head -n 5 ${txt_path} > ${out_file}
-grep ${grep_word} ${txt_path} >> ${out_file}
+head -n 5 "${txt_path}" > "${out_file}"
+grep "${grep_word}" "${txt_path}" >> "${out_file}"
 ```
 
 This version takes the file path as `$1` and the search word as `$2`, so the same script can be reused across different files, not just different words.
