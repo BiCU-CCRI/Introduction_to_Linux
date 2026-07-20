@@ -22,9 +22,10 @@ Each of us interacts with a computer every day. It is easy to overlook that this
 
 ![Comparison of a graphical user interface (GUI) and a command line interface (CLI)](https://github.com/user-attachments/assets/fa09bae2-5e13-4f97-ab23-b31a39e642d9)
 
-<sup>*GUI vs CLI*</sup>
+<sup>*Comparison of a graphical user interface (GUI) and a command line interface (CLI)*</sup>
 
-A GUI allows users to interact with the computer by clicking icons, buttons, and menus, whereas a CLI involves typing text-based instructions. A command is simply an instruction you give the computer to perform a task. Like a sentence in a language, commands have a specific structure, or syntax, that tells the computer exactly what to do and how to do it.
+A GUI allows users to int<img width="825" height="443" alt="starting_codespaces" src="https://github.com/user-attachments/assets/b0ef4235-c18f-4fe0-8213-30b3d113cc5d" />
+eract with the computer by clicking icons, buttons, and menus, whereas a CLI involves typing text-based instructions. A command is simply an instruction you give the computer to perform a task. Like a sentence in a language, commands have a specific structure, or syntax, that tells the computer exactly what to do and how to do it.
 
 ### Benefits of the command line
 
@@ -58,10 +59,9 @@ This course is designed to run in [GitHub Codespaces](https://github.com/feature
 4. Click **Create codespace on main**.
 5. Wait for the environment to build - this can take up to 10 minutes the first time.
 
-<!-- TODO: Add screenshot of "Create codespace on main" when repository is close to finished -->
+<img width="825" height="443" alt="starting_codespaces" src="https://github.com/user-attachments/assets/47524f00-7e2e-4190-8b9e-1b8eac7f41fe" />
 
 Once it is ready, you will have a complete Linux environment running in your browser, including a terminal where you can run commands.
-<!-- TODO: Add screenshot of where Terminal is when repository is close to finished -->
 
 You can experiment freely in this environment — if something goes wrong, you can always restart the Codespace or return to the original course files. It doesn't have access to your local files, so don't be afraid to play around.
 
