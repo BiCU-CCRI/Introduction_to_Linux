@@ -1,5 +1,5 @@
 # Session 1
-## Introduction to Linux: Navigating the Terminal
+## Navigating the Terminal
 
 ---
 
@@ -30,7 +30,7 @@ A few things worth keeping in mind all session:
 - **`Ctrl+C` is always safe.** If the prompt shows `>` instead of `$`, you likely have an unclosed quote, bracket, or similar - `Ctrl+C` cancels and returns you to the prompt.
 - **`rm` has no undo.** Deleting a file is permanent, with no confirmation and no trash bin.
 - **`>` overwrites silently; `>>` appends.** `>` replaces a file's entire content with no warning. Use `>` once to start a file, then `>>` for every line after.
-- **`pwd` provides the path to your current location.** Whenever you're unsure where you are, run `pwd`. 
+- **`pwd` provides the path to your current location.** Whenever you're unsure where you are, run `pwd`.
 - **Use Tab completion constantly.** It prevents typos and helps you explore.
 
 ---
@@ -146,6 +146,8 @@ Change directory (`cd`) into `session_1`: `cd session_1`
 - From your home directory, use `cd` with **Tab completion** or paste the path you copied earlier to return to the `session_1` directory
 - Bonus point: run `cd ~`, `pwd`, `cd -`, and `pwd` - what does `cd -` do?
 
+---
+
 ### Exercise 3: Build a Project Structure
 
 **Goal:** Build a directory hierarchy and navigate it confidently.
@@ -219,7 +221,7 @@ Back in `session_1`, run `ls -l projects/work` - you should see `tasks.txt` with
 - Create a file inside `archive` called `old_notes.txt` without navigating into `archive` (=using a path starting from `session_1`)
 - Run `ls -l projects/` from `session_1` to verify all three subdirectories
 - Try using **Tab completion** for every single `cd` and `mkdir` command
-- Test the difference between  `mkdir projects/docs/figures` and `mkdir -p projects/docs/figures` - what does `mkdir -p` do?
+- Test the difference between `mkdir projects/docs/figures` and `mkdir -p projects/docs/figures` - what does `mkdir -p` do?
 
 ---
 
@@ -284,7 +286,7 @@ echo "cherry" >> fruits.txt
 | `pwd` | Print current (working) directory |
 | `ls` / `ls -l` / `ls -lh` | List files (plain / detailed / human-readable sizes) |
 | `ls -lt` / `ls -ltr` | Sort by time / reverse order |
-| `cd` / `cd ..` / `cd ~` / `cd -` | Change directory / go up one level  /  go to home  /  go to the last (previous) location |
+| `cd` / `cd ..` / `cd ~` / `cd -` | Change directory / go up one level / go to home / go to the last (previous) location |
 | `mkdir`, `mkdir -p` | Create a directory / create nested directories at once |
 | `touch` | Create an empty file |
 | `rm` / `rmdir` / `rm -r` | Delete a file / Delete an empty directory / Delete a non-empty directory (**no undo, no confirmation prompt**) |
@@ -295,7 +297,7 @@ echo "cherry" >> fruits.txt
 
 ---
 
-## Appendix A - Full Command Reference for Session 1
+## Appendix A - New Commands in Session 1
 
 | Command | What it does | Example |
 |---|---|---|
