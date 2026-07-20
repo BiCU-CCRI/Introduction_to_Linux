@@ -17,7 +17,7 @@ Today we'll cover:
 8. **Exercise 8: For Loops**
 9. **Exercise 9: Scripts in Scripts**
 10. **Exercise 10: Compare similar / identical outputs**
-11. Wrap-up
+11. Cheat sheet & appendices
 
 ---
 
@@ -169,14 +169,14 @@ bash my_script
 
 This showcases how easy it is to write a script. However, we skipped three **very important best practices** we should follow, since we don't want to produce sloppy code.
 
-**4**. Add a shebang line at the top of the script:
+**4.** Add a shebang line at the top of the script:
 ```
 #!/bin/bash
 ```
 
 This tells the operating system which interpreter should be used to run the script when we execute it directly.
 
-**5**. Use a clear filename that immediately shows what type of file it is. For Bash scripts, the `.sh` extension is commonly used:
+**5.** Use a clear filename that immediately shows what type of file it is. For Bash scripts, the `.sh` extension is commonly used:
 ```
 my_script.sh
 ```
@@ -196,7 +196,7 @@ This gives the file permission to be run as a program to you as the owner of the
 
 Note that you can use `ls -l` to compare the script's permissions with the other files. Notice that the script now has an additional `x` in the owner's permissions
 
-**7**. The final script should look like this:
+**7.** The final script should look like this:
 ```
 #!/bin/bash
 
@@ -236,20 +236,20 @@ You create a variable by giving it a name and assigning it a value using `=`. Ex
 \`\`\`bash
 #!/bin/bash
 
-searched_word="Hybriden"
+search_word="Hybriden"
 
-head -n 5 mendel.txt > mendel_"${searched_word}".txt
-grep "${searched_word}" mendel.txt >> mendel_"${searched_word}".txt
+head -n 5 mendel.txt > mendel_"${search_word}".txt
+grep "${search_word}" mendel.txt >> mendel_"${search_word}".txt
 \`\`\`
 
 **3.** Rewrite the `hardcoded.sh` script to accept a single command line parameter and save it as a variable:
 ```
 #!/bin/bash
 
-searched_word="$1"
+search_word="$1"
 
-head -n 5 mendel.txt > mendel_"${searched_word}".txt
-grep "${searched_word}" mendel.txt >> mendel_"${searched_word}".txt
+head -n 5 mendel.txt > mendel_"${search_word}".txt
+grep "${search_word}" mendel.txt >> mendel_"${search_word}".txt
 ```
 `$1` refers to the first argument passed to the script when you run it.  
 
@@ -324,9 +324,9 @@ The variable `search_word` takes one value at a time - first `Hybriden`, then `G
 
 **1.** If you update your code and expect the outputs not to be affected, you can run `diff file_before_the_change.txt file_after_the_change.txt` to identify differences (line by line) between 2 files.
 
-**2.** Run `diff` on `mendel_Hybriden.txt` from `variables.sh` and `mendel_Hybriden.txt` from `forloop.sh`. Think how you go about the identical filename problem.
+**2.** Run `diff` on `mendel_Hybriden.txt` from `variable.sh` and `mendel_Hybriden.txt` from `forloop.sh`. Think how you go about the identical filename problem.
 
-**3.** Now run `diff` on 2 files where you expect differences. For example the `grep` output for the words`Hybride` and `Hybriden`. How does the output look?
+**3.** Now run `diff` on 2 files where you expect differences. For example the `grep` output for the words `Hybride` and `Hybriden`. How does the output look?
 
 ---
 
@@ -389,7 +389,7 @@ The variable `search_word` takes one value at a time - first `Hybriden`, then `G
 | `.sh` extension | Signals the file is a shell script | `my_script.sh` |
 | `variable="value"` | Assigns a value to a variable | `search_word="Generation"` |
 | `${variable}` | Uses the variable's value | `grep "${grep_word}" file` |
-| `$1`, `$2`, ... | Positional arguments passed to a Bash script | `bash variables.sh Generation` |
+| `$1`, `$2`, ... | Positional arguments passed to a Bash script | `bash variable.sh Generation` |
 | `for x in a b c; do ...; done` | Loops over a list of values | See Exercise 8 |
 
 ---
@@ -421,7 +421,7 @@ The variable `search_word` takes one value at a time - first `Hybriden`, then `G
 | Accidentally edited `mendel.txt` in VS Code | Editors can modify files, unlike `less` | Check for unsaved changes; re-download or restore the file if needed |
 | `bash: ./my_script.sh: Permission denied` | Script isn't executable yet | Run `chmod +x my_script.sh`, then try again |
 | `bash: my_script.sh: command not found` | Ran the script without `bash` or `./` | Use `bash my_script.sh` or `./my_script.sh` |
-| Script runs but variable is empty | No argument passed to `$1` | Run the script with an argument, e.g. `bash variables.sh Generation` |
+| Script runs but variable is empty | No argument passed to `$1` | Run the script with an argument, e.g. `bash variable.sh Generation` |
 
 ---
 
