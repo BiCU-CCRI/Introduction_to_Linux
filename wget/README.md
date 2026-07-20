@@ -48,7 +48,7 @@ During the session, attendees will:
 | `session4_R2.fastq.gz.md5` | MD5 checksum for `session4_R2.fastq.gz` (`md5sum -c session4_R2.fastq.gz.md5`) |
 | `WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz` | Exercise file (bgzipped VCF) |
 | `WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz.tbi` | Tabix index for the VCF above |
-| `checksums.txt` | MD5 checksums for the VCF and its index (`md5sum -c checksums.txt`) |
+| `checksums.md5` | MD5 checksums for the VCF and its index (`md5sum -c checksums.md5`) |
 
 **Download links (permalinks):**
 - `session4_R1.fastq.gz`: https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/session4_R1.fastq.gz
@@ -57,7 +57,7 @@ During the session, attendees will:
 - `session4_R2.fastq.gz.md5`: https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/session4_R2.fastq.gz.md5
 - `WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz`: https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz
 - `WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz.tbi`: https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz.tbi
-- `checksums.txt`: https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/checksums.txt
+- `checksums.md5`: https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/2c36b8f74b28d95a118f4ccaa35791aff2e9231c/wget/files/session4/checksums.md5
 
 ## Example workflow
 
