@@ -27,16 +27,20 @@ Today we'll cover:
 
 **Goal:** Download the input file and confirm its integrity.
 
-**Before you start navigate to session_3** `cd /workspaces/Introduction_to_Linux/session_3/`
+**Before you start:** navigate to `session_3`
+```
+cd /workspaces/Introduction_to_Linux/session_3/
+```
 
 **1.** Download `mendel.txt` and `mendel.txt.md5`:
-https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/refs/heads/21-create-wget-branch-to-host-files-for-exercises/wget/files/session3/mendel.txt  
+```
+https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/refs/heads/21-create-wget-branch-to-host-files-for-exercises/wget/files/session3/mendel.txt
 https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/refs/heads/21-create-wget-branch-to-host-files-for-exercises/wget/files/session3/mendel.txt.md5
+```
 
 **2.** Confirm file integrity by checking the MD5 value (using `md5sum`).
 
-**3.**
-- Run `cat mendel.txt`.
+**3.** Run `cat mendel.txt`.
 
 ---
 
@@ -86,6 +90,8 @@ tail -n 15 mendel.txt
 - You can check the start and end of `mendel.txt` with a custom number of lines with `head` and `tail`
 - You have redirected the output of `head` or `tail` into a new file and confirmed it
 
+---
+
 ### Exercise 4: Reading Large Files
 
 **Goal:** Inspect the contents of a large file using a reader function or editor.
@@ -97,11 +103,11 @@ tail -n 15 mendel.txt
 less mendel.txt
 ```
 
-* Navigate with arrow keys
-* Exit with pressing `q`
-* Perform forward searches (`/`) and reverse searches (`?`) -  Press `/`, type a search term (e.g. `hybrid`), then press **Enter/return** to jump to the first match. `n` jumps to next, `N` to previous hit
-* `g` jumps to the start of the document, `G` to the end. Note: You can exit the search mode by pressing `Esc` and then `u`
-* Exit the file with pressing `q` to quit and return to the command line.
+- Navigate with arrow keys
+- Exit with pressing `q`
+- Perform forward searches (`/`) and reverse searches (`?`) - press `/`, type a search term (e.g. `hybrid`), then press **Enter/return** to jump to the first match. `n` jumps to next, `N` to previous hit
+- `g` jumps to the start of the document, `G` to the end. Note: You can exit the search mode by pressing `Esc` and then `u`
+- Exit the file with pressing `q` to quit and return to the command line.
 
 **`less` will never edit or overwrite your files!**
 
@@ -139,7 +145,7 @@ grep "Hybriden" mendel.txt
 grep -i "Hybriden" mendel.txt
 ```
 
-**3.** Prepare a file named `mendel_generation.txt` that contains the first 5 lines of `mendel.txt`, followed by all lines containing the word `Generation`. 
+**3.** Prepare a file named `mendel_generation.txt` that contains the first 5 lines of `mendel.txt`, followed by all lines containing the word `Generation`.
 
 **Extension - if you finish early:**
 - Run `grep -v "Generation" mendel.txt`. What does `-v` do?
@@ -183,7 +189,7 @@ my_script.sh
 
 The extension makes the file's purpose easier to recognize.
 
-**6**. Make the script executable:
+**6.** Make the script executable:
 ```
 chmod u+x my_script.sh
 ```
@@ -227,7 +233,7 @@ Make the script executable and run it.
 
 **Goal:** Replace hardcoded values with a variable so the same script works for any word.
 
-You create a variable by giving it a name and assigning it a value using `=`. Example: `search_word="Hybriden"`. To use the value stored in a variable, add `$` and wrap the variable name in curly brackets. Example: `echo ${search_word}`.  
+You create a variable by giving it a name and assigning it a value using `=`. Example: `search_word="Hybriden"`. To use the value stored in a variable, add `$` and wrap the variable name in curly brackets. Example: `echo ${search_word}`.
 
 **1.** Create a file called `variable.sh`.
 
@@ -251,18 +257,18 @@ search_word="$1"
 head -n 5 mendel.txt > mendel_"${search_word}".txt
 grep "${search_word}" mendel.txt >> mendel_"${search_word}".txt
 ```
-`$1` refers to the first argument passed to the script when you run it.  
+`$1` refers to the first argument passed to the script when you run it.
 
 Note: You can also write scripts that accept multiple arguments; those would be accessed with `$2`, `$3`, and so on, in the code.
 
-**3.** Make it executable and run it with an argument:
+**4.** Make it executable and run it with an argument:
 ```
 chmod u+x variable.sh
 bash variable.sh "Generation"
 ```
 `$1` is replaced by `Generation`, so the script searches for the word `Generation` and writes the result to `mendel_Generation.txt`.
 
-**4.** Run it again with a different word, use the up arrow on the command line to recover the last executed command.
+**5.** Run it again with a different word, use the up arrow on the command line to recover the last executed command.
 
 **You are done when:**
 - `variable.sh` runs successfully with at least two different words as arguments
@@ -270,7 +276,7 @@ bash variable.sh "Generation"
 - You can explain what `$1` in the Bash script refers to
 
 **Extension - if you finish early:**
-- What other elements in the script could be replaced by a variable? 
+- What other elements in the script could be replaced by a variable?
 - Try running `variable.sh` with no argument at all. What happens to `${search_word}`?
 
 ---
@@ -378,7 +384,7 @@ The variable `search_word` takes one value at a time - first `Hybriden`, then `G
 | `N` | Jump to previous match |
 | `g` | Jump to the start of the document |
 | `G` | Jump to the end of the document |
-| `Esc` and then `u` | Stop the search | 
+| `Esc` and then `u` | Stop the search |
 | `q` | Quit `less` |
 
 **Scripting basics:**
@@ -394,7 +400,7 @@ The variable `search_word` takes one value at a time - first `Hybriden`, then `G
 
 ---
 
-## Appendix B - Sessions 1 & 2 Quick Reference
+## Appendix B - Sessions 1-2 Quick Reference
 
 | Command | What it does |
 |---|---|
@@ -456,12 +462,12 @@ Once a script works with one variable, it's often worth generalizing further - f
 #!/bin/bash
 
 txt_path="$1"
-grep_word="$2"
+search_word="$2"
 txt_filename="$(basename ${txt_path})"
-out_file="${grep_word}"_"${txt_filename}"
+out_file="${search_word}"_"${txt_filename}"
 
 head -n 5 "${txt_path}" > "${out_file}"
-grep "${grep_word}" "${txt_path}" >> "${out_file}"
+grep "${search_word}" "${txt_path}" >> "${out_file}"
 ```
 
 This version takes the file path as `$1` and the search word as `$2`, so the same script can be reused across different files, not just different words.

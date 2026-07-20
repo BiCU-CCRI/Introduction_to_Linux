@@ -1,5 +1,5 @@
-# Session 2 - Participant Handout
-## Intro to Linux: Working with Files
+# Session 2
+## Working with Files
 
 ---
 
@@ -23,7 +23,7 @@ Today we'll cover:
 ## Important Notes
 
 - **`pwd` before you download.** Wherever you are when you run `wget` is where the downloaded file lands.
-- **A checksum is a fingerprint, not a password.** You never need to memorize or type one - you just compare "does it say OK or FAILED." 
+- **A checksum is a fingerprint, not a password.** You never need to memorize or type one - you just compare "does it say OK or FAILED."
     - Note: There are two common forms: a batch file (`checksums.md5` covering several files) and a single-file companion (`file.txt.md5` covering just one) - you'll see both.
 - **Never redirect into a file you're reading from.** `cat file1 file2 > file1` empties `file1` before `cat` even reads it. Always redirect to a **new** file.
 - **`mv` moves - the original is gone** while **`cp` copies - the original stays**. Neither warns you before overwriting an existing file.
@@ -103,7 +103,7 @@ wget https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/refs/head
 
 **5.** Confirm all four files are present: `ls -lh` - you should see `sample_1.txt`, `sample_2.txt`, `sample_3.txt`, and `checksums.md5`.
 
-**6.** Look at the checksums file: `cat checksums.md5` - what does it contain? 
+**6.** Look at the checksums file: `cat checksums.md5` - what does it contain?
 
 **You are done when:**
 - `ls` shows all four files in `session_2`
@@ -162,6 +162,8 @@ md5sum -c checksums.md5
 - You have used `md5sum -c` to check the status of the files
 - You've seen both `OK` and `FAILED` output from `md5sum -c`
 - The check returned `OK` for all three files at step 7
+
+---
 
 ### Exercise 3: Combine and Organize
 
@@ -374,8 +376,8 @@ cat names_clean.txt
 | `*` | Wildcard: any number of any characters |
 | `?` | Wildcard: exactly one character |
 | `sort file` | Sort lines alphabetically |
-| `sort file | uniq` | Remove adjacent duplicate lines|
-| `sort -u file` | Shortcut for `sort | uniq` |
+| `sort file \| uniq` | Remove adjacent duplicate lines |
+| `sort -u file` | Shortcut for `sort \| uniq` |
 | `uniq -c` | Count occurrences of each line |
 
 ---
