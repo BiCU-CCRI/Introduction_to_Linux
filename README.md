@@ -24,8 +24,7 @@ Each of us interacts with a computer every day. It is easy to overlook that this
 
 <sup>*Comparison of a graphical user interface (GUI) and a command line interface (CLI)*</sup>
 
-A GUI allows users to int<img width="825" height="443" alt="starting_codespaces" src="https://github.com/user-attachments/assets/b0ef4235-c18f-4fe0-8213-30b3d113cc5d" />
-eract with the computer by clicking icons, buttons, and menus, whereas a CLI involves typing text-based instructions. A command is simply an instruction you give the computer to perform a task. Like a sentence in a language, commands have a specific structure, or syntax, that tells the computer exactly what to do and how to do it.
+A GUI allows users to interact with the computer by clicking icons, buttons, and menus, whereas a CLI involves typing text-based instructions. A command is simply an instruction you give the computer to perform a task. Like a sentence in a language, commands have a specific structure, or syntax, that tells the computer exactly what to do and how to do it.
 
 ### Benefits of the command line
 
