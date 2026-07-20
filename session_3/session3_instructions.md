@@ -388,7 +388,7 @@ The variable `search_word` takes one value at a time - first `Hybriden`, then `G
 | `#!/bin/bash` | Shebang line - tells the OS which interpreter to use | First line of the script |
 | `.sh` extension | Signals the file is a shell script | `my_script.sh` |
 | `variable="value"` | Assigns a value to a variable | `search_word="Generation"` |
-| `${variable}` | Uses the variable's value | `grep "${grep_word}" file` |
+| `${variable}` | Uses the variable's value | `grep "${variable}" file` |
 | `$1`, `$2`, ... | Positional arguments passed to a Bash script | `bash variable.sh Generation` |
 | `for x in a b c; do ...; done` | Loops over a list of values | See Exercise 8 |
 
