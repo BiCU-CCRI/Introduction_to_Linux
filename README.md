@@ -1,8 +1,8 @@
 # Introduction to Linux and the Command Line
 
-A course for CCRI users on how to use Linux and the command line.
+A course on how to use Linux and the command line for St. Anna CCRI.
 
-## The Linux operating system - the OS of choice for high performance and scientific computing
+## The Linux operating system - the OS of choice for high-performance and scientific computing
 
 While most personal computers and laptops run Windows or macOS, Linux is the predominant operating system for high-performance computing (HPC) systems, including servers and computing clusters. In fact, Linux runs on all of the world's top 500 fastest supercomputers [^1].
 
@@ -18,19 +18,19 @@ Another important reason Linux is the OS of choice for scientific computing is t
 
 ## The graphical user interface (GUI) and command line interface (CLI) - and why we use the CLI
 
-Each of us interacts with a computer every day. It is easy to overlook that this involves first logging in with a user account, then giving the computer different tasks to perform. There are two main ways to interact with an operating system: a **graphical user interface (GUI)** or a **command line interface (CLI)**.
+Each of us interacts with a computer every day. It is easy to overlook that this involves first logging in with a user account and then giving the computer a set of tasks to perform. There are two main ways to interact with an operating system: a **graphical user interface (GUI)** or a **command line interface (CLI)**.
 
-<img width="3799" height="1159" alt="Comparison of a graphical user interface (GUI) and a command line interface (CLI)" src="https://github.com/user-attachments/assets/fa09bae2-5e13-4f97-ab23-b31a39e642d9" />
+![Comparison of a graphical user interface (GUI) and a command line interface (CLI)](https://github.com/user-attachments/assets/fa09bae2-5e13-4f97-ab23-b31a39e642d9)
 
 <sup>*GUI vs CLI*</sup>
 
 A GUI allows users to interact with the computer by clicking icons, buttons, and menus, whereas a CLI involves typing text-based instructions. A command is simply an instruction you give the computer to perform a task. Like a sentence in a language, commands have a specific structure, or syntax, that tells the computer exactly what to do and how to do it.
 
-### Benefits of the CLI
+### Benefits of the command line
 
 **Automation:**
 - File navigation and editing can often be easier through a GUI, especially for small numbers of files. However, the CLI is much more powerful when tasks need to be repeated or automated.
-- Imagine you've just come back from a holiday and your camera created files like `IMG_0001.jpg`, `IMG_0002.jpg`, `IMG_0003.jpg`, ... and you want them to become `Italy_001.jpg`, `Italy_002.jpg`, `Italy_003.jpg`, ... In a GUI, you might need a special renaming tool or manually rename each file. With the CLI, a single command can rename hundreds of files automatically.
+- Example: Imagine you've just come back from a holiday and your camera created files like `IMG_0001.jpg`, `IMG_0002.jpg`, `IMG_0003.jpg`, ... and you want them to become `Italy_001.jpg`, `Italy_002.jpg`, `Italy_003.jpg`, ... In a GUI, you might need a special renaming tool or manually rename each file. With the CLI, a single command can rename hundreds of files automatically.
 
 **Remote access:**
 - CLIs typically consume far less network bandwidth than GUIs, making them much better suited to remote computing environments.
@@ -42,7 +42,7 @@ A GUI allows users to interact with the computer by clicking icons, buttons, and
 
 ---
 
-By the end of this course, you'll be able to combine a sequence of simple commands into a script. Similarly, in bioinformatics, individual tools can be chained together to create workflows or pipelines that process large datasets. You don't need to be a programmer to use Linux — many scientists accomplish analyses using just a handful of basic commands.
+By the end of this course, you'll be able to combine a sequence of simple commands into a script using the Linux command line. Similarly, in bioinformatics, individual tools can be chained together to create workflows or pipelines that process large datasets. You don't need to be a programmer to use Linux — many scientists accomplish analyses using just a handful of basic commands.
 
 ---
 
@@ -50,20 +50,20 @@ By the end of this course, you'll be able to combine a sequence of simple comman
 
 ### Opening GitHub Codespaces
 
-This course is designed to run in [GitHub Codespaces](https://github.com/features/codespaces), so you do not need to install any software on your own computer.
+This course is designed to run in [GitHub Codespaces](https://github.com/features/codespaces), so you do not need to install any software on your own computer. GitHub Codespaces is basically a virtual Linux machine you can run through a web browser.
 
 1. Scroll back to the top of this GitHub page.
 2. Click the green **Code** button.
 3. Select the **Codespaces** tab.
 4. Click **Create codespace on main**.
-5. Wait for the environment to build - this can take up to 5 minutes the first time.
+5. Wait for the environment to build - this can take up to 10 minutes the first time.
 
 <!-- TODO: Add screenshot of "Create codespace on main" when repository is close to finished -->
 
 Once it is ready, you will have a complete Linux environment running in your browser, including a terminal where you can run commands.
 <!-- TODO: Add screenshot of where Terminal is when repository is close to finished -->
 
-You can experiment freely in this environment — if something goes wrong, you can always restart the Codespace or return to the original course files.
+You can experiment freely in this environment — if something goes wrong, you can always restart the Codespace or return to the original course files. It doesn't have access to your local files, so don't be afraid to play around.
 
 ### Managing GitHub Codespaces
 
@@ -81,7 +81,7 @@ You can view and manage your Codespaces at https://github.com/codespaces. Click 
 
 ### Following the sessions
 
-The course is divided into sessions, each contained in its own folder (`session_1`, `session_2`, and so on). Each folder contains a `sessionN_instructions.md` file with:
+The course is divided into sessions (blocks), each contained in its own folder (`session_1`, `session_2`, and so on). Each folder contains a `sessionN_instructions.md` file with:
 
 - An overview of what the session covers
 - Step-by-step exercises to complete in order
@@ -106,12 +106,12 @@ You won't remember every command or option, and that's fine - knowing how to loo
 
 **Search online:**
 - Include "linux" or "bash" in your search terms (e.g. "linux rename multiple files") to avoid Windows- or macOS-specific results.
-- Prefer official documentation (`man` pages, GNU coreutils manual) over random blog posts when you need to be sure about behaviour.
+- Prefer official documentation (`man` pages, [GNU coreutils manual](https://www.gnu.org/software/coreutils/manual/coreutils.html)) over random blog posts when you need to be sure about behavior. Prefer `man` pages over other sources because they provide a manual for the specific version of the tool installed on your computer. 
 - If you get an error message, search for it close to verbatim - error messages are usually specific enough that someone else has hit the same one before.
 
 **Ask an AI tool:**
-- Tools like ChatGPT or Claude are good at explaining what a command or error message means, or suggesting the right command for a task you can describe in plain English.
-- Always check and understand a suggested command before running it - especially anything involving `rm`, `mv`, or file permissions, since these can't be undone.
+- Tools like ChatGPT or Claude are good at explaining what a command or error message means, or suggesting the right command for a task you can describe in plain English. Question: "What does XYZ do in Bash"? usually gives you a decent explanation of what is happening.
+- Always check and understand a suggested command before running it - especially anything involving `rm`, `mv`, or file permissions, since these **can't be undone**!
 
 ---
 
