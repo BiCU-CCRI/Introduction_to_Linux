@@ -42,7 +42,7 @@ https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd60620
 
 **3.** Download the MD5 checksum file:
 ```
-https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/checksums.txt
+https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/2c36b8f74b28d95a118f4ccaa35791aff2e9231c/wget/files/session4/checksums.md5
 ```
 
 **4.** Verify the MD5 sums using `md5sum`:
