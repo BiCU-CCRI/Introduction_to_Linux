@@ -36,9 +36,9 @@ During the session, attendees will:
 | `mendel_parts.zip` | More exercise files |
 
 **Download links (permalinks):**
-- `mendel.txt`: https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/abc67ba8f3c6927ab6c03297bd8f0e79dbe4185b/wget/files/session3/mendel.txt
-- `mendel.txt.md5`: https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/abc67ba8f3c6927ab6c03297bd8f0e79dbe4185b/wget/files/session3/mendel.txt.md5
-- `mendel_parts.zip`: https://github.com/BiCU-CCRI/Introduction_to_Linux/blob/8401f83ab9ad339c1f6938b6ff4e9faa3d738a5e/wget/files/session3/mendel_parts.zip
+- `mendel.txt`:       https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/abc67ba8f3c6927ab6c03297bd8f0e79dbe4185b/wget/files/session3/mendel.txt
+- `mendel.txt.md5`:   https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/abc67ba8f3c6927ab6c03297bd8f0e79dbe4185b/wget/files/session3/mendel.txt.md5
+- `mendel_parts.zip`: https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/78d4dacb98ee45b42aacd730c27dda174927b674/wget/files/session3/mendel_parts.zip
 
 ### Session 4 — [`files/session4/`](files/session4)
 
