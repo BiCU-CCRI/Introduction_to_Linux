@@ -59,8 +59,6 @@ head session4_R1.fastq.gz
 ```
 Does this look like readable text?
 
-**2.** Try `less session4_R1.fastq.gz`. Does it look any better? Quit with `q`.
-
 ---
 
 ### Exercise 3: Decompressing Files
