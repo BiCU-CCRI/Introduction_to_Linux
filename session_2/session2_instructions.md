@@ -22,6 +22,10 @@ Today we'll cover:
 
 ## Important Notes
 
+- **In case you want to follow along with the demo session, you can download the file with:**
+```
+wget https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/refs/heads/21-create-wget-branch-to-host-files-for-exercises/wget/files/session2/demo_file.txt
+```
 - **`pwd` before you download.** Wherever you are when you run `wget` is where the downloaded file lands.
 - **A checksum is a fingerprint, not a password.** You never need to memorize or type one - you just compare "does it say OK or FAILED."
     - Note: There are two common forms: a batch file (`checksums.md5` covering several files) and a single-file companion (`file.txt.md5` covering just one) - you'll see both.
