@@ -38,7 +38,8 @@ During the session, attendees will:
 **Download links (permalinks):**
 - `mendel.txt`:       https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/abc67ba8f3c6927ab6c03297bd8f0e79dbe4185b/wget/files/session3/mendel.txt
 - `mendel.txt.md5`:   https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/abc67ba8f3c6927ab6c03297bd8f0e79dbe4185b/wget/files/session3/mendel.txt.md5
-- `mendel_parts.zip`: https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/78d4dacb98ee45b42aacd730c27dda174927b674/wget/files/session3/mendel_parts.zip
+- `mendel_parts.zip`: https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/a5d6a633d254e3bcb63c8a5b1053dc7a728d1fab/wget/files/session3/parts/mendel_parts.zip
+- `checksums.md5`:    https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/a5d6a633d254e3bcb63c8a5b1053dc7a728d1fab/wget/files/session3/parts/checksums.md5
 
 ### Session 4 — [`files/session4/`](files/session4)
 
@@ -53,13 +54,13 @@ During the session, attendees will:
 | `checksums.md5` | MD5 checksums for the VCF and its index (`md5sum -c checksums.md5`) |
 
 **Download links (permalinks):**
-- `session4_R1.fastq.gz`: https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/session4_R1.fastq.gz
-- `session4_R1.fastq.gz.md5`: https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/session4_R1.fastq.gz.md5
-- `session4_R2.fastq.gz`: https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/session4_R2.fastq.gz
-- `session4_R2.fastq.gz.md5`: https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/session4_R2.fastq.gz.md5
-- `WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz`: https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz
-- `WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz.tbi`: https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz.tbi
-- `checksums.md5`: https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/2c36b8f74b28d95a118f4ccaa35791aff2e9231c/wget/files/session4/checksums.md5
+- `session4_R1.fastq.gz`:     https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/a5d6a633d254e3bcb63c8a5b1053dc7a728d1fab/wget/files/session4/fastq/session4_R1.fastq.gz
+- `session4_R1.fastq.gz.md5`: https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/8028efcbd6062097c9b2fa2997d6205369c8a7a6/wget/files/session4/fastq/session4_R1.fastq.gz.md5
+- `session4_R2.fastq.gz`:     https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/a5d6a633d254e3bcb63c8a5b1053dc7a728d1fab/wget/files/session4/fastq/session4_R2.fastq.gz
+- `session4_R2.fastq.gz.md5`: https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/a5d6a633d254e3bcb63c8a5b1053dc7a728d1fab/wget/files/session4/fastq/session4_R2.fastq.gz.md5
+- `session4 vcf`:             https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/a5d6a633d254e3bcb63c8a5b1053dc7a728d1fab/wget/files/session4/vcf/WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz
+- `session4 vcf index`:       https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/a5d6a633d254e3bcb63c8a5b1053dc7a728d1fab/wget/files/session4/vcf/WES_IL_T_1_vs_WES_IL_N_1.mutect2.filtered_VEP.ann.chr17.vcf.gz.tbi
+- `checksums.md5`:            https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/a5d6a633d254e3bcb63c8a5b1053dc7a728d1fab/wget/files/session4/vcf/checksums.md5
 
 ## Example workflow
 
