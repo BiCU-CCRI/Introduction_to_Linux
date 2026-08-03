@@ -22,9 +22,9 @@ Today we'll cover:
 
 ## Important Notes
 
-- **In case you want to follow along with the demo session, you can download the file with:**
+- **We will first demonstrate the commands used in this section before moving on to the exercises. You can follow along with the demo by downloading the file with:**
 ```
-wget https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/refs/heads/21-create-wget-branch-to-host-files-for-exercises/wget/files/session2/demo_file.txt
+wget https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/6e4f74b4f101f5022d6b9ce040490ef74e8434f2/wget/files/session2/demo_file.txt
 ```
 - **`pwd` before you download.** Wherever you are when you run `wget` is where the downloaded file lands.
 - **A checksum is a fingerprint, not a password.** You never need to memorize or type one - you just compare "does it say OK or FAILED."
