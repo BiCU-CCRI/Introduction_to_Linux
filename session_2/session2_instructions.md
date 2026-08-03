@@ -22,6 +22,10 @@ Today we'll cover:
 
 ## Important Notes
 
+- **We will first demonstrate the commands used in this section before moving on to the exercises. You can follow along with the demo by downloading the file with:**
+```
+wget https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/6e4f74b4f101f5022d6b9ce040490ef74e8434f2/wget/files/session2/demo_file.txt
+```
 - **`pwd` before you download.** Wherever you are when you run `wget` is where the downloaded file lands.
 - **A checksum is a fingerprint, not a password.** You never need to memorize or type one - you just compare "does it say OK or FAILED."
     - Note: There are two common forms: a batch file (`checksums.md5` covering several files) and a single-file companion (`file.txt.md5` covering just one) - you'll see both.
@@ -236,11 +240,10 @@ ls
 **Part A. Explore `*`**
 
 **1.** List all `.txt` files: `ls *.txt` - how many files match?
+
 **2.** List only files starting with `fruit_`: `ls fruit_*`
 
-**3.** Now try `ls fruit_*.txt`. What's the difference compared to previous `ls fruit_*`?
-
-**4.** Combine only the files starting with `fruit_` into a single output:
+**3.** Combine only the files starting with `fruit_` into a single output:
 ```
 cat fruit_*.txt > all_fruit.txt
 cat all_fruit.txt
@@ -249,9 +252,9 @@ What does it contain? Did `fruit_info.txt` get included?
 
 **Part B. Explore `?`**
 
-**5.** Try `?` to match only a single wildcard character: `ls fruit_?.txt` - which files match? Is `fruit_info.txt` included? Why?
+**4.** Try `?` to match only a single wildcard character: `ls fruit_?.txt` - which files match? Is `fruit_info.txt` included? Why?
 
-**6.** Compare `fruit_?.txt` vs `fruit_*.txt`:
+**5.** Compare `fruit_?.txt` vs `fruit_*.txt`:
 ```
 ls fruit_?.txt
 ls fruit_*.txt
@@ -260,26 +263,26 @@ What's the difference in the results?
 
 **Part C. Preview before acting**
 
-**7.** You want to move only the three `fruit_?.txt` files to a `fridge/` folder. Preview first:
+**6.** You want to move only the three `fruit_?.txt` files to a `fridge/` folder. Preview first:
 ```
 mkdir fridge
 ls fruit_?.txt
 ```
 Does the list show exactly what you want to move?
 
-**8.** Only after confirming, move the files:
+**7.** Only after confirming, move the files:
 ```
 mv fruit_?.txt fridge/
 ```
 
-**9.** Verify the result:
+**8.** Verify the result:
 ```
 ls
 ls fridge/
 ```
 Are only the three fruit files (`fruit_a.txt`, `fruit_b.txt`, `fruit_c.txt`) in `fridge/`?
 
-**10.** Confirm that `fruit_info.txt`, `results_final.txt`, and `notes.txt` are still in `session_2/data`.
+**9.** Confirm that `fruit_info.txt`, `results_final.txt`, and `notes.txt` are still in `session_2/data`.
 
 **You are done when:**
 - `ls fridge/` shows `fruit_a.txt`, `fruit_b.txt`, `fruit_c.txt`
