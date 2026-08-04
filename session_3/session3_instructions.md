@@ -15,7 +15,7 @@ Today we'll cover:
 6. **Exercise 6: Scripting**
 7. **Exercise 7: Variables**
 8. **Exercise 8: For Loops**
-9. **Exercise 9: Scripts in Scripts**
+9. **Exercise 9: Loop over Files**
 10. **Exercise 10: Compare similar / identical outputs**
 11. Cheat sheet & appendices
 
@@ -34,8 +34,8 @@ cd /workspaces/Introduction_to_Linux/session_3/
 
 **1.** Download `mendel.txt` and `mendel.txt.md5`:
 ```
-https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/refs/heads/21-create-wget-branch-to-host-files-for-exercises/wget/files/session3/mendel.txt
-https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/refs/heads/21-create-wget-branch-to-host-files-for-exercises/wget/files/session3/mendel.txt.md5
+https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/abc67ba8f3c6927ab6c03297bd8f0e79dbe4185b/wget/files/session3/mendel.txt
+https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/abc67ba8f3c6927ab6c03297bd8f0e79dbe4185b/wget/files/session3/mendel.txt.md5
 ```
 
 **2.** Confirm file integrity by checking the MD5 value (using `md5sum`).
@@ -308,19 +308,38 @@ The variable `search_word` takes one value at a time - first `Hybriden`, then `G
 
 ---
 
-### Exercise 9: Scripts in scripts
+### Exercise 9: Loop over files
 
-**Goal:** Call one of your own scripts from inside another script.
+**1.** Download and Verify
+```
+https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/a5d6a633d254e3bcb63c8a5b1053dc7a728d1fab/wget/files/session3/parts/mendel_parts.zip
+https://raw.githubusercontent.com/BiCU-CCRI/Introduction_to_Linux/a5d6a633d254e3bcb63c8a5b1053dc7a728d1fab/wget/files/session3/parts/checksums.md5
+```
 
-**1.** A script can execute another script, just like it can run any other command.
+**2.** Unzip
+```
+unzip mendel_parts.zip
+```
 
-**2.** Update `forloop.sh` so that, instead of running `head` and `grep` directly, it calls `variable.sh` once per word in the loop.
+**3.** Script
 
-**3.** Run the updated `forloop.sh` and confirm the output files are still produced correctly.
+```
+for part in ./mendel_pt?.txt
+do
+    echo "${part}"
+    head -n 1 "${part}"
+    wc -l "${part}"
+    grep "Hybride" "${part}" | wc -l
+done
+```
 
 **You are done when:**
-- `forloop.sh` no longer contains `head`/`grep` directly - it calls `variable.sh` instead
-- Running `forloop.sh` still produces one output file per word
+- Your script runs successfully
+- You can explain how the script knew which files to loop over
+
+**Extension - if you finish early:**
+- How would you write the output of the script to a file called `out.txt`?
+- What would need to be changed in the code if you want to get rid of the "./mendel_ptX.txt" next to the line count?
 
 ---
 
@@ -432,6 +451,22 @@ The variable `search_word` takes one value at a time - first `Hybriden`, then `G
 ---
 
 ## Optional Content
+
+### Optional exercise: Scripts in scripts
+
+**Goal:** Call one of your own scripts from inside another script.
+
+**1.** A script can execute another script, just like it can run any other command.
+
+**2.** Update `forloop.sh` so that, instead of running `head` and `grep` directly, it calls `variable.sh` once per word in the loop.
+
+**3.** Run the updated `forloop.sh` and confirm the output files are still produced correctly.
+
+**You are done when:**
+- `forloop.sh` no longer contains `head`/`grep` directly - it calls `variable.sh` instead
+- Running `forloop.sh` still produces one output file per word
+
+---
 
 ### Built-in Editors: `nano` and `vim`
 
