@@ -335,10 +335,10 @@ done
 
 **You are done when:**
 - Your script runs successfully
-- You can explain how the script knew  which files to loop over
+- You can explain how the script knew which files to loop over
 
 **Extension - if you finish early:**
-- How would you write the output of the script to a file called `out.txt`
+- How would you write the output of the script to a file called `out.txt`?
 - What would need to be changed in the code if you want to get rid of the "./mendel_ptX.txt" next to the line count?
 
 ---
@@ -452,7 +452,7 @@ done
 
 ## Optional Content
 
-### Exercise 11: Scripts in scripts
+### Optional exercise: Scripts in scripts
 
 **Goal:** Call one of your own scripts from inside another script.
 
